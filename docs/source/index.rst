@@ -37,5 +37,6 @@ Contents
    folder-structure
    redux 
    strategic-reasoning
+   postman
 
 ProShopApp has its documentation hosted on Read the Docs.
