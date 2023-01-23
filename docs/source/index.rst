@@ -19,6 +19,7 @@ Contents
 .. toctree::
 
    introduction
+   starting the front end
    api
 
 ProShopApp has its documentation hosted on Read the Docs.
