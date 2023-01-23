@@ -3,6 +3,9 @@ Starting the Front End
 
 .. _starting-the-front-end:
 
+React Setup & Git Initialize
+------------
+
 React-Bootstrap Setup, Header & Footer Components
 ------------
 
@@ -22,3 +25,4 @@ Implementing React Router
 
 Product Details Screen
 ----------------
+test
