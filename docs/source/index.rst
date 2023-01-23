@@ -6,19 +6,19 @@ Udemy course created by Brad Traversy to learn
 more about React and other technologies.
 The main website can be found  `here. <https://proshopapp2023.herokuapp.com/>`_
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :doc:`introduction` section for further information, including
+how to :ref:`intro` the project.
 
 .. note::
 
-   This project is under active development.
+   This documention is under active development. It's main purpose is to help me gain understanding from Brad Traversy's ProShopApp course.
 
 Contents
 --------
 
 .. toctree::
 
-   usage
+   introduction
    api
 
 ProShopApp has its documentation hosted on Read the Docs.

@@ -146,6 +146,9 @@ __pypackages__/
 celerybeat-schedule
 celerybeat.pid
 
+# Template Sphinx files
+docs/source/usage.rst
+
 # SageMath parsed files
 *.sage.py
 
