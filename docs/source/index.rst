@@ -21,6 +21,6 @@ Contents
    introduction
    starting-the-front-end
    serving-and-fetching-data-from-express
-   api
+   getting-started-with-mongodb
 
 ProShopApp has its documentation hosted on Read the Docs.

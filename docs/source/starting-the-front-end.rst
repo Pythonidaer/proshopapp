@@ -3,8 +3,7 @@ Starting the Front End
 
 .. _starting-the-front-end:
 
-React-Bootstrap Setup,
-Header & Footer Components
+React-Bootstrap Setup, Header & Footer Components
 ------------
 
 test
