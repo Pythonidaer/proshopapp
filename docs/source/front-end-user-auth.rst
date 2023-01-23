@@ -1,4 +1,4 @@
-Front End User Authentication and Profile
+Front End User Authentication & Profile
 =====
 
 .. _front-end-user-auth:

@@ -1,4 +1,4 @@
-Product Reviews Search and More
+Product Reviews, Search & More
 =====
 
 .. _product-reviews-search:

@@ -1,4 +1,4 @@
-Admin Screens Part 1
+Admin Screens - Part 1
 =====
 
 .. _admin-screens-pt1:
