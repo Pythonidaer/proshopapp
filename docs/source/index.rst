@@ -17,6 +17,7 @@ Contents
 --------
 
 .. toctree::
+   :maxdepth: 2
 
    introduction
    starting-the-front-end
