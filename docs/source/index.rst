@@ -19,7 +19,8 @@ Contents
 .. toctree::
 
    introduction
-   starting the front end
+   starting-the-front-end
+   serving-and-fetching-data-from-express
    api
 
 ProShopApp has its documentation hosted on Read the Docs.

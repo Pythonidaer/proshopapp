@@ -1,7 +1,7 @@
 Starting the Front End
 =====
 
-.. _starting the front end:
+.. _starting-the-front-end:
 
 React-Bootstrap Setup,
 Header & Footer Components
