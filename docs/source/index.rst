@@ -23,5 +23,7 @@ Contents
    starting-the-front-end
    serving-and-fetching-data-from-express
    getting-started-with-mongodb
+   implementing-redux-for-state-management
+   adding-the-shopping-cart
 
 ProShopApp has its documentation hosted on Read the Docs.

@@ -1,4 +1,4 @@
-Serving and Fetching Data From Express
+Serving And Fetching Data From Express
 =====
 
 .. _serving-and-fetching-data-from-express:

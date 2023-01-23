@@ -1,4 +1,4 @@
-Starting the Front End
+Starting The Front End
 =====
 
 .. _starting-the-front-end:
