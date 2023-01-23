@@ -1,6 +1,4 @@
 Getting Started With MongoDB
-..
-    The above is what appears on the lefthand TOC side
 =====
 
 .. _getting-started-with-mongodb:
