@@ -1,4 +1,4 @@
-Serving & Fetching Data From Express
+Serving and Fetching Data From Express
 ..
     The above is what appears on the lefthand TOC side
 =====
