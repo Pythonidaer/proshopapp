@@ -25,5 +25,17 @@ Contents
    getting-started-with-mongodb
    implementing-redux-for-state-management
    adding-the-shopping-cart
+   back-end-user-auth
+   front-end-user-auth
+   checkout-process-pt1
+   checkout-process-pt2
+   admin-screens-pt1
+   admin-screens-pt2
+   product-reviews-search
+   app-deployment
+   npm-libraries
+   folder-structure
+   redux 
+   strategic-reasoning
 
 ProShopApp has its documentation hosted on Read the Docs.
