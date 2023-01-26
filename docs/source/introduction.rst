@@ -74,19 +74,19 @@ Section 1.3: Resources & Environment
 ------------------------------------
 
 * `Traversy's GitHub <https://github.com/bradtraversy/proshop_mern/>`_
-* `Traversy's GitHub: <https://github.com/bradtraversy/proshop_mern/>`_
-* `Basir's YouTube: <https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw/>`_
-* `Coding with Basir: <https://codingwithbasir.com/>`_
-* `React Docs: <https://reactjs.org/>`_
-* `Redux Docs: <https://redux.js.org/>`_
-* `MongoDB Docs: <https://www.mongodb.com/>`_
-* `Node.js Docs: <https://nodejs.org/en/>`_
-* `Heroku: <https://www.heroku.com/>`_
-* `Heroku CLI: <https://devcenter.heroku.com/articles/heroku-cli/>`_
-* `Redux Devtools: <https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en/>`_
-* `React Bootstrap: <https://react-bootstrap.github.io//>`_
-* `Bootswatch: <https://bootswatch.com/>`_
-* `JWT.io: <https://jwt.io/>`_
+* `Traversy's GitHub <https://github.com/bradtraversy/proshop_mern/>`_
+* `Basir's YouTube <https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw/>`_
+* `Coding with Basir <https://codingwithbasir.com/>`_
+* `React Docs <https://reactjs.org/>`_
+* `Redux Docs <https://redux.js.org/>`_
+* `MongoDB Docs <https://www.mongodb.com/>`_
+* `Node.js Docs <https://nodejs.org/en/>`_
+* `Heroku <https://www.heroku.com/>`_
+* `Heroku CLI <https://devcenter.heroku.com/articles/heroku-cli/>`_
+* `Redux Devtools <https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en/>`_
+* `React Bootstrap <https://react-bootstrap.github.io//>`_
+* `Bootswatch <https://bootswatch.com/>`_
+* `JWT.io <https://jwt.io/>`_
 
 VSCode Extensions 
 ########
