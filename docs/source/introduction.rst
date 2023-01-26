@@ -8,7 +8,7 @@ Welcome, Project Demo & Resources
 
 To use ProShopApp, visit the  `Udemy course. <https://www.udemy.com/share/103Cb63@kNDD1NIkFuxNhxVvYAdSwy5PT9fv4_lv6sUm118z5LwRLMPAWjHVWvEjNdZUCwZj/>`_ 
 
-Section 1: Course Welcome
+Section 1.1: Course Welcome
 ----------------
 
 This is a sample,
@@ -39,8 +39,8 @@ MERN stack eCommerce course. One large single project course - an eCommerce plat
 * What is 'State'?
 * What are 'Props'?
 
-ProShop Project Demo 
-########
+Section 1.2: ProShop Project Demo 
+----------------
 
 * Built from scratch, then deployed to Heroku 
 * Redux Dev Tools to see:
@@ -69,3 +69,19 @@ ProShop Project Demo
         * Edit or delete orders
 * Search feature: regex
 * Database seeder to seed db with products and users
+
+Section 1.3: Resources & Environment
+----------------
+.. _a Traversy's GitHub: https://github.com/bradtraversy/proshop_mern
+.. _a Basir's YouTube: https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw
+.. _a Coding with Basir: https://codingwithbasir.com/
+.. _a React Docs: https://reactjs.org/
+.. _a Redux Docs: https://redux.js.org/
+.. _a MongoDB Docs: https://www.mongodb.com/
+.. _a Node.js Docs: https://nodejs.org/en/
+.. _a Heroku: https://www.heroku.com/
+.. _a Heroku CLI: https://devcenter.heroku.com/articles/heroku-cli
+.. _a Redux Devtools: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+.. _a React Bootstrap: https://react-bootstrap.github.io/
+.. _a Bootswatch: https://bootswatch.com/
+.. _a JWT.io: https://jwt.io/
