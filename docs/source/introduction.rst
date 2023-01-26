@@ -72,6 +72,7 @@ Section 1.2: ProShop Project Demo
 
 Section 1.3: Resources & Environment
 ----------------
+
 .. _a Traversy's GitHub: https://github.com/bradtraversy/proshop_mern
 .. _a Basir's YouTube: https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw
 .. _a Coding with Basir: https://codingwithbasir.com/
