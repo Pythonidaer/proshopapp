@@ -35,7 +35,37 @@ MERN stack eCommerce course. One large single project course - an eCommerce plat
  13. Jump in and get your hands dirty!
 
  Quiz.
- a. What are React Components?
- b. What is 'State'?
- c. What are 'Props'?
+ * What are React Components?
+ * What is 'State'?
+ * What are 'Props'?
 
+ProShop Project Demo 
+########
+
+* Built from scratch, then deployed to Heroku 
+* Redux Dev Tools to see:
+    * Actions that are fired off
+    * State, Diff, etc.
+* Home Page: 
+* Navbar: search projects, cart to shopping cart Page, sign in 
+* Registration/Sign in Pages: form 
+* Carousel: top-rated products: clicking links to product Page
+    * Products Page: latest products (from database) - *pagination*
+        * Product Page: image, title, description, overall rating, quantity in stock, reviews 
+        * Form to write review (1 per project)
+* Add to Cart Page 
+* Checkout Page: redirects to Sign-In page if not already logged in (uses local storage)
+* Shipping Page:
+* Payment Page:
+* Placeorder Page:
+* Order Page: > button for PayPal API
+* Profile Page: > allows you to update Name, Email, Password and view Orders
+* Admin Page:
+    * Unique admin privileges/Additional options to:
+        * Edit or delete users > edit form, buttons, redirects
+        * Make users admins
+        * Edit or delete products
+        * Create products 
+        * Edit or delete orders
+* Search feature: regex
+* Database seeder to seed db with products and users
