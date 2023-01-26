@@ -35,9 +35,9 @@ MERN stack eCommerce course. One large single project course - an eCommerce plat
  13. Jump in and get your hands dirty!
 
  Quiz.
- * What are React Components?
- * What is 'State'?
- * What are 'Props'?
+* What are React Components?
+* What is 'State'?
+* What are 'Props'?
 
 ProShop Project Demo 
 ########
