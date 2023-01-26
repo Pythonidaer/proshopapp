@@ -73,6 +73,7 @@ Section 1.2: ProShop Project Demo
 Section 1.3: Resources & Environment
 ------------------------------------
 
+ `Traversy's GitHub <https://github.com/bradtraversy/proshop_mern/>`_
 .. _a Traversy's GitHub: https://github.com/bradtraversy/proshop_mern
 .. _a Basir's YouTube: https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw
 .. _a Coding with Basir: https://codingwithbasir.com/
@@ -85,18 +86,25 @@ Section 1.3: Resources & Environment
 .. _a Redux Devtools: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 .. _a React Bootstrap: https://react-bootstrap.github.io/
 .. _a Bootswatch: https://bootswatch.com/
-.. _a JWT.io: https://jwt.io/
+.. 
+    _a JWT.io: https://jwt.io/
 
 VSCode Extensions 
 ########
+
 ES7 React/Redux/GraphQL/React-native snippets (shortcuts for Component generation) - *rafce*
+
 Bracket Pair Colorizer (organizes syntax colorfully)
+
 Auto Rename Tag (HTML and JSX) - changes beginning and end tags
+
 JavaScript (ES6) code snippets 
+
 Prettier - Code formatter - to remove semi-colons (or keep them if you prefer) same with single quotes
 
 VSCode Settings
 ########
+
 Prettier:
 * JSX Single Quote (checked) 
 * Semicolons (unchecked) 
