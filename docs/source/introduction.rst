@@ -96,10 +96,9 @@ VSCode Extensions
 * JavaScript (ES6) code snippets 
 * Prettier - Code formatter - to remove semi-colons (or keep them if you prefer) same with single quotes
 
-VSCode Settings
+VSCode Settings (Prettier)
 ########
 
-Prettier:
 * JSX Single Quote (checked)
 * Semicolons (unchecked)
 * Single Quote (checked)
