@@ -50,9 +50,9 @@ Section 1.2: ProShop Project Demo
 * Navbar: search projects, cart to shopping cart Page, sign in 
 * Registration/Sign in Pages: form 
 * Carousel: top-rated products: clicking links to product Page
-    * Products Page: latest products (from database) - *pagination*
-        * Product Page: image, title, description, overall rating, quantity in stock, reviews 
-        * Form to write review (1 per project)
+* Products Page: latest products (from database) - *pagination*
+    * Product Page: image, title, description, overall rating, quantity in stock, reviews 
+    * Form to write review (1 per project)
 * Add to Cart Page 
 * Checkout Page: redirects to Sign-In page if not already logged in (uses local storage)
 * Shipping Page:
@@ -61,19 +61,18 @@ Section 1.2: ProShop Project Demo
 * Order Page: > button for PayPal API
 * Profile Page: > allows you to update Name, Email, Password and view Orders
 * Admin Page:
-    * Unique admin privileges/Additional options to:
-        * Edit or delete users > edit form, buttons, redirects
-        * Make users admins
-        * Edit or delete products
-        * Create products 
-        * Edit or delete orders
+* Unique admin privileges/Additional options to:
+    * Edit or delete users > edit form, buttons, redirects
+    * Make users admins
+    * Edit or delete products
+    * Create products 
+    * Edit or delete orders
 * Search feature: regex
 * Database seeder to seed db with products and users
 
 Section 1.3: Resources & Environment
 ------------------------------------
 
-* `Traversy's GitHub <https://github.com/bradtraversy/proshop_mern/>`_
 * `Traversy's GitHub <https://github.com/bradtraversy/proshop_mern/>`_
 * `Basir's YouTube <https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw/>`_
 * `Coding with Basir <https://codingwithbasir.com/>`_
@@ -91,23 +90,19 @@ Section 1.3: Resources & Environment
 VSCode Extensions 
 ########
 
-ES7 React/Redux/GraphQL/React-native snippets (shortcuts for Component generation) - *rafce*
-
-Bracket Pair Colorizer (organizes syntax colorfully)
-
-Auto Rename Tag (HTML and JSX) - changes beginning and end tags
-
-JavaScript (ES6) code snippets 
-
-Prettier - Code formatter - to remove semi-colons (or keep them if you prefer) same with single quotes
+* ES7 React/Redux/GraphQL/React-native snippets (shortcuts for Component generation) - *rafce*
+* Bracket Pair Colorizer (organizes syntax colorfully)
+* Auto Rename Tag (HTML and JSX) - changes beginning and end tags
+* JavaScript (ES6) code snippets 
+* Prettier - Code formatter - to remove semi-colons (or keep them if you prefer) same with single quotes
 
 VSCode Settings
 ########
 
 Prettier:
-* JSX Single Quote (checked) 
-* Semicolons (unchecked) 
-* Single Quote (checked) 
+* JSX Single Quote (checked)
+* Semicolons (unchecked)
+* Single Quote (checked)
 * Tab width (2)
 
 Settings.json shows this information and more 

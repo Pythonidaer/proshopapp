@@ -3,7 +3,7 @@ NPM Libraries
 
 .. _npm-libraries:
 
-Additiona Information: NPM Packages and Docs:
+Additiona Information: NPM Packages and Docs
 ---------------------------------------------
 
 * `Express <https://www.npmjs.com/package/express/>`_
