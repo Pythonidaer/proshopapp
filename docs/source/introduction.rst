@@ -4,12 +4,12 @@ Introduction
 .. _intro:
 
 Welcome, Project Demo & Resources
-------------
+---------------------------------
 
 To use ProShopApp, visit the  `Udemy course. <https://www.udemy.com/share/103Cb63@kNDD1NIkFuxNhxVvYAdSwy5PT9fv4_lv6sUm118z5LwRLMPAWjHVWvEjNdZUCwZj/>`_ 
 
 Section 1.1: Course Welcome
-----------------
+---------------------------
 
 This is a sample,
 I don't really need to document this section.
@@ -40,7 +40,7 @@ MERN stack eCommerce course. One large single project course - an eCommerce plat
 * What are 'Props'?
 
 Section 1.2: ProShop Project Demo 
-----------------
+---------------------------------
 
 * Built from scratch, then deployed to Heroku 
 * Redux Dev Tools to see:
@@ -71,7 +71,7 @@ Section 1.2: ProShop Project Demo
 * Database seeder to seed db with products and users
 
 Section 1.3: Resources & Environment
-----------------
+------------------------------------
 
 .. _a Traversy's GitHub: https://github.com/bradtraversy/proshop_mern
 .. _a Basir's YouTube: https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw

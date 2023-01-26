@@ -4,7 +4,8 @@ NPM Libraries
 .. _npm-libraries:
 
 Additiona Information: NPM Packages and Docs:
-----------------
+---------------------------------------------
+
 .. _a Express: https://www.npmjs.com/package/express
 .. _a Express Async Handler: https://www.npmjs.com/package/express-async-handler
 .. _a Bcryptjs: https://www.npmjs.com/package/bcryptjs
