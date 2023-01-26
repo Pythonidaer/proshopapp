@@ -85,3 +85,21 @@ Section 1.3: Resources & Environment
 .. _a React Bootstrap: https://react-bootstrap.github.io/
 .. _a Bootswatch: https://bootswatch.com/
 .. _a JWT.io: https://jwt.io/
+
+VSCode Extensions 
+########
+ES7 React/Redux/GraphQL/React-native snippets (shortcuts for Component generation) - *rafce*
+Bracket Pair Colorizer (organizes syntax colorfully)
+Auto Rename Tag (HTML and JSX) - changes beginning and end tags
+JavaScript (ES6) code snippets 
+Prettier - Code formatter - to remove semi-colons (or keep them if you prefer) same with single quotes
+
+VSCode Settings
+########
+Prettier:
+* JSX Single Quote (checked) 
+* Semicolons (unchecked) 
+* Single Quote (checked) 
+* Tab width (2)
+
+Settings.json shows this information and more 

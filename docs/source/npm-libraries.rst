@@ -25,4 +25,4 @@ Additiona Information: NPM Packages and Docs:
 .. _a Redux Devtools Extension: https://www.npmjs.com/package/redux-devtools-extension
 .. _a React PayPal Button v2: https://www.npmjs.com/package/react-paypal-button-v2
 .. _a React Helmet: https://www.npmjs.com/package/react-helmet
-.. _a Axios: https://www.npmjs.com/package/axios
+.. _a Axios: https://www.npmjs.com/package/axios 
