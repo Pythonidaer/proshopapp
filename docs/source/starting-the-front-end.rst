@@ -11,8 +11,8 @@ Section 2.4: React Setup & Git Initialize
 2. Create new folder for project
 3. Open with VSCode
 ``npx create-react-app frontend``
-    This is the client, the front end, the UI part of our application
-    The backend folder will be Node, Express, database, etc.
+    # This is the client, the front end, the UI part of our application
+    # The backend folder will be Node, Express, database, etc.
 4. ``cd`` into the frontend folder, then run ``npm start`` to run our frontend dev-server
     On localhost:3000 by default
 5. You'll notice the package.json has all the dependencies that we use
