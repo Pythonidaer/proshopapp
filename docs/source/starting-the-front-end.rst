@@ -65,7 +65,48 @@ Section 2.4: React Setup & Git Initialize
 Section 2.5: React-Bootstrap Setup, Header & Footer Components
 ------------
 
-test
+1. Create Header and Footer components
+2. Implement React-Bootstrap
+3. ``src/ components/`` (Header, Footer, Search Box, etc.)
+4. Screens: Home, Product, Profile, etc will also be React components
+5. However these will go in a separate folder called ``screens/``
+6. Naming convention for components is as so: ``Header.js``
+7. Typing in ``rafce`` (React Arrow Function Component Export) short-cut works great here
+8. Change ``<div>`` to ``<header>header</header>``
+9. Also create a ``Footer.js`` Component and change the ``<div>`` to a ``<footer>footer</footer>``
+10. Navigate to ``App.js`` then import the Components above (Header, Footer)
+11. Because the Components are ``export`` as ``default``, they don't need to be imported in curly brackets (``{}``).
+12. ``import Header from './components/Header'`` repeat for footer
+.. code-block:: js
+   :caption: .App.js
+   :emphasize-lines: 4-8
+
+   const App = () => {
+    return (
+        <>
+        <Header />
+        <main>
+            <h1>Welcome To ProShop</h1>
+        </main>
+        <Footer />
+        </>
+    )
+}
+13. Test in Browser
+14. Navigate to react-bootstrap.github.io to get set up with the UI library we are using.
+15. This will allow us to use a variety of React-Bootstrap prebuilt components (like ``<Button>``) as well as subcomponents (less things needed to be brought in than material-ui)
+16. There is also a material-ui library if you are looking for an alternative
+17. Bootswatch.com shows us free themes for bootstrap that are pre-customized
+18. Click the arrow beside your theme of choice and download the ``bootstrap.min.css`` 
+19. Drag this downloaded file within the ``src/`` folder beside the ``index.css`` file
+20. Navigate to ``index.js`` and ``import './boostrap.min.css'`` file
+21. Review the application to see if the fonts have changed
+
+19. This way we just need React-Bootstrap and not need to install boostrap with ``npm``
+``cd`` into your ``frontend/`` and 
+
+
+
 
 Section 2.6: HomeScreen Product Listing
 ----------------
