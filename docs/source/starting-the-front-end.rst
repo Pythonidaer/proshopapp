@@ -77,23 +77,23 @@ Section 2.5: React-Bootstrap Setup, Header & Footer Components
 10. Navigate to ``App.js`` then import the Components above (Header, Footer)
 11. Because the Components are ``export`` as ``default``, they don't need to be imported in curly brackets (``{}``).
 12. ``import Header from './components/Header'`` repeat for footer
-.. code-block:: js
-   :caption: .App.js
-   :emphasize-lines: 4-8
+.. .. code-block:: js
+..    :caption: .App.js
+..    :emphasize-lines: 4-8
 
-   const App = () => {
-    return (
-        <>
-        <Header />
-        <main>
-            <h1>Welcome To ProShop</h1>
-        </main>
-        <Footer />
-        </>
-    )
-}
+..    const App = () => {
+..     return (
+..         <>
+..         <Header />
+..         <main>
+..             <h1>Welcome To ProShop</h1>
+..         </main>
+..         <Footer />
+..         </>
+..     )
+.. }
 13. Test in Browser
-14. Navigate to react-bootstrap.github.io to get set up with the UI library we are using.
+14. Navigate to `react-bootstrap.github.io <https://react-bootstrap.github.io/>`_ to get set up with the UI library we are using.
 15. This will allow us to use a variety of React-Bootstrap prebuilt components (like ``<Button>``) as well as subcomponents (less things needed to be brought in than material-ui)
 16. There is also a material-ui library if you are looking for an alternative
 17. Bootswatch.com shows us free themes for bootstrap that are pre-customized
@@ -101,9 +101,31 @@ Section 2.5: React-Bootstrap Setup, Header & Footer Components
 19. Drag this downloaded file within the ``src/`` folder beside the ``index.css`` file
 20. Navigate to ``index.js`` and ``import './boostrap.min.css'`` file
 21. Review the application to see if the fonts have changed
-
-19. This way we just need React-Bootstrap and not need to install boostrap with ``npm``
-``cd`` into your ``frontend/`` and 
+22. ``cd`` into your ``frontend/`` and for this dependency run ``npm i react-boostrap``
+23. ``Containers`` will move everything into the middle
+24. In ``App.js`` ``import { Container } from 'react-boostrap'``
+25. Within ``<main>`` wrap a ``<Container>`` so that it holds the ``<h1>`` tag
+26. ``import`` {Container, Row, and Col} from ``react-boostrap`` in the ``Footer.js`` file
+27. Review the React-Bootstrap documentation for more information on these Components
+28. Inside your ``index.css`` file, make ``main { min-height: 80vh; }`` to push the ``<footer>`` down
+29. Copy ``<Navbar>`` code from React-Bootstrap into the ``<header>`` tag in ``Header.js``
+30. Make sure to ``import`` {Navbar, Nav, Container} ``from 'react-boostrap'``
+31. Remove the ``<Form>`` Component code as Traversy gets to that later
+32. Get rid of the ``<NavDropdown>`` as well for the same reason
+33. Later on we ``import`` from ``react-router-bootstrap'`` for this 
+34. So if you review the video, now is ``<Nav.Link>`` but later is ``<LinkContainer>``
+35. Label your ``<Navbar.Brand>`` then set ``<Navbar>`` ``bg="dark"`` and ``variant='dark'``
+36. Also add ``collapseOnSelect``
+37. Add the ``<Container>`` right within the ``<Navbar>`` tags
+38. Navigate to `cdnjs.com <https://cdnjs.com/>`_ then search for font-awesome
+39. Once you find the ``all.min.css`` link, click the 'copy link' tag
+40. Navigate to your ``public/index.html`` file and add the CDN into the ``<head>`` tag
+41. This allows us to use icon classes
+42. An example of this code in ``Header.js`` includes ``<i className='fas fa-shopping-cart'></i>``
+43. Note that we use various Bootstrap classes without this course for styling
+44. In the next section, we begin our ``Homescreen`` and bring in some products
+45. This will initially be a ``JavaScript file`` with an array of products
+46. We will work with this for a little while then start to move on to the ``backend/`` serving products from there, connecting to our database, etc.
 
 
 
