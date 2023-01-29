@@ -77,21 +77,6 @@ Section 2.5: React-Bootstrap Setup, Header & Footer Components
 10. Navigate to ``App.js`` then import the Components above (Header, Footer)
 11. Because the Components are ``export`` as ``default``, they don't need to be imported in curly brackets (``{}``).
 12. ``import Header from './components/Header'`` repeat for footer
-.. .. code-block:: js
-..    :caption: .App.js
-..    :emphasize-lines: 4-8
-
-..    const App = () => {
-..     return (
-..         <>
-..         <Header />
-..         <main>
-..             <h1>Welcome To ProShop</h1>
-..         </main>
-..         <Footer />
-..         </>
-..     )
-.. }
 13. Test in Browser
 14. Navigate to `react-bootstrap.github.io <https://react-bootstrap.github.io/>`_ to get set up with the UI library we are using.
 15. This will allow us to use a variety of React-Bootstrap prebuilt components (like ``<Button>``) as well as subcomponents (less things needed to be brought in than material-ui)
