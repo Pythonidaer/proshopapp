@@ -118,6 +118,47 @@ Section 2.5: React-Bootstrap Setup, Header & Footer Components
 Section 2.6: HomeScreen Product Listing
 ----------------
 
+1. Set up ``HomeScreen.js`` and list out all of our products
+2. We will use a JavaScript file with a products array with some dummy data
+3. Later on we wil be actually fetching products from our backend and ultimately from a db
+4. For now though we should have in our project files an ``images/`` folder and a ``products.js`` file 
+5. Copy the ``images/`` folder into the ``public/`` folder (they are the product photos)
+6. Bring the ``products.js`` file into the ``src/`` folder
+7. Observe that products.js is an array of objects, with key values of string and number
+8. One of the important notes about the ``image:`` key is that its value is to the ``image/`` folder 
+9. In our ``src/`` folder create a new folder called ``screens/`` > ``HomeScreen.js``
+10. ``rafce`` then tab in the file 
+11. ``import products from '../products'``
+12. What we want to do here is loop through all the products and then output
+13. Each one will be its own product component, which we create in a little while
+14. Replace the component's ``<div>`` with an empty fragment ``<> </>``
+15. Add in a Bootstrap ``<Row>`` and ``import { Row, Col } from 'react-bootstrap'``
+16. Inside the ``<Row>`` loop through our products that we imported above
+17. i.e. like ``{products.map(product => (<Col sm={12} ><h3>{product.name}</h3></Col>))}``
+18. Go to our ``App.js`` then ``import HomeScreen from './screens/HomeScreen'``
+19. Within the ``<Container>`` add ``<HomeScreen />`` then review the page again
+20. This way we are able to bring the products into the file and loop over them 
+21. Go back to the HomeScreen code and replace the ``<h3>``s with ``<Product />``
+22. Remember that Components can take in ``props``
+23. In this case we will be accessing ``product={product}`` in ``<Product>`` passed from above
+24. ``import Product from '../components/Product'``
+25. Navigate to ``src/components/`` and create ``Product.js`` then use the ``rafce`` shortcut
+26. Add in a ``<Card>`` and make sure this is ``imported`` from ``react-bootstrap``
+27. When we implement ``react-router`` we will use the ``<Link>`` tag but for now juse use ``<a>``
+28. Within the ``<Card>`` add ``<a href={`/product/${product._id}`}>``
+29. Within that ``<a>`` Add in ``<Card.Img src={product.image} variant='top' />``
+30. Next, within the ``Product`` functional component, destructure ``({product})`` as a prop
+31. You should now see columns of images on the main page 
+32. Go back to the ``Product`` and below the link with the image and add ``<Card.Body>``
+33. Paste in the ``<a>`` code from above but change ``<Card.Img>`` to ``<Card.Title as='div'>``
+34. Within the ``Card.Title`` add ``<strong>{product.name}</strong>``
+35. Before the ending of the ``</Card.Body>`` add ``<Card.Text as='div'>`` then a ``<div>``
+36. Within this ``<div>`` add ``{product.rating} from {product.numReviews} reviews``
+37. Below the ``</Card.Text>`` add another ``<Card.Text as='h3'>`` and add ``${product.price}``
+38. In the next video, we will be adding the ``<Rating>`` component
+
+
+
 Section 2.7: Rating Component
 ------------
 
