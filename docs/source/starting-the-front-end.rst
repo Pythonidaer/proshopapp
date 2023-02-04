@@ -161,9 +161,42 @@ Section 2.6: HomeScreen Product Listing
 
 Section 2.7: Rating Component
 ------------
+1. We will create the ``<Rating>`` component to make stars appear along with Font Awesome icons.
+2. ``import Rating from './Rating'`` and remove the ``{product.rating} from {product.numReviews} reviews`` <div>
+3. Here ``<Rating/>`` will take in 2 props: ``value={product.rating}`` and ``text={`${product.numReviews} reviews`}``
+4. Go to the ``components/`` folder and create a ``Rating.js`` file, then use the ``rafce`` syntax 
+5. ``Rating`` arrow function component will take the 3 props ``{ value, text, color }`` 
+6. Create ``<span>`` within to represent each one (?)
+7. Head to `FontAwesome.com <https://fontawesome.com/icons/star-half-stroke?s=regular&f=classic>`_ to choose the stars you want to use 
+8. Which star we show is going to depend on the value that's passed in, which is the product rating
+9. The conditional code in ``Rating.js`` will always show 5 ``<span>`` tags nested with FontAwesome ``<i>`` icons, however the ``value`` attribute/prop will determine whether the star is filled, half, or empty
+10. We also use a span for ``{text && text}`` to short-circuit evaluate 
+11. In React we can add inline styles, but we need to use double curly braces ``style={{color}}``
+12. For example we could add ``color='red'`` but here we will want to have a default yellow
+13. For a default Prop value, in the bottom of ``Rating.js`` we can set ``defaultProps`` object
+14. In ``Rating.js`` add ``import PropTypes from 'prop-types'`` to specify the type of each prop we're using (this is optional)
+15. This will now type-check our props 
+16. Beware the warning ``Warning: Each child in a list should have a unique "key" prop.``
+17. What that means is that when we create a list such as we did in ``HomeScreen.js`` the element has to have a ``key`` and that needs to be unique
+18. So, back on ``HomeScreen.js``, make each looped ``<Col key={product._id}>`` and that warning should go away 
+19. Navigate to ``index.css`` to add ``.rating span { margin: 0.1rem }``
+20. At this point you should be able to see both our ratings and our number of reviews 
+21. In the next video, Traversy will start to implement the routing
+22. We will be able to click a link and go to a separate ``ProductScreen``
+23. Search for the React Web Tools from chrome web store 
+24. Search for the Redux Dev Tools and install
+25. Now in the console, with the React tools we can see the tree of Components, including the Bootstrap components 
+26. This will also show you the props that are passed into each Component
+27. In the next video, we set up React Router 
+28. React Router v6 has been released and has some changes, so see the video below to begin 
+
 
 Section 2.8: Note on React Router
 ----------------
+
+1. Review Traversy's video on `React Router v6 <https://www.youtube.com/watch?v=k2Zk5cbiZhg&t=1s/>`_ changes
+2. Test
+
 
 Section 2.9: Implementing React Router
 ------------
