@@ -195,7 +195,31 @@ Section 2.8: Note on React Router
 ----------------
 
 1. Review Traversy's video on `React Router v6 <https://www.youtube.com/watch?v=k2Zk5cbiZhg&t=1s/>`_ changes
-2. Test
+2. React Router v6 breaks a lot of things from v5 (outdated)
+3. As an aside, ``npm i react-router-dom@latest`` updates to the latest version for npm packages
+4. One error to resolve is ``Error: A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>``
+5. The ``<Switch>`` element does not exist anymore - it's been switched to ``<Routes>``
+6. Now you have to wrap your ``<Route>``s in ``<Routes>`` (see ``App.js``) for an example 
+7. ``import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'``
+8. The ``<Route>`` components now have an ``element`` attribute that that takes in JSX 
+9. ``exact`` is no longer needed for routes 
+10. Also note the error ``Error: [h3] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>``
+11. When adding a ``<Route>``, make sure to ``import`` the component! (see: ``App.js``)
+12. Params are still dealt with similarly as did v5, i.e. ``path='/task/:id'`` 
+13. ``<Link to={`/task/${task.id}`>`` syntax remains the same as from v5 
+14. Another import of note is the ``userParams`` functionality from ``react-router-dom``
+15. The above is how we get params (i.e. id's); these can also be destructured 
+16. You can test this object out by ``const params = useParams()``, then ``console.log(params)``
+17. The above replaces the destructuring of such object items as ``match``, because these props are not available anymore 
+18. "Redirect" has also been replaced with ``Navigate`` in ``react-router-dom``
+19. i.e. ``if(error){return <Navigate to='/'> />}``
+20. There is also a ``useNavigate`` hook! For more information on hooks, see React documentation 
+21. First do ``const navigate = useNavigate()``, then for example ``if(res.status === 404){navigate('/')}``
+22. ``navigate(-1)`` will take us to the last page
+23. ``useLocation()`` is another hook available in ``react-router-dom`` for location data such as ``pathname``
+24. Again, this could be destructured ``const { pathname } = useLocation()``
+25. To recap, no more <Switch>, you have to use <Routes>, new attribute with JSX, new hooks
+
 
 
 Section 2.9: Implementing React Router
