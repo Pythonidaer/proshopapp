@@ -219,13 +219,47 @@ Section 2.8: Note on React Router
 23. ``useLocation()`` is another hook available in ``react-router-dom`` for location data such as ``pathname``
 24. Again, this could be destructured ``const { pathname } = useLocation()``
 25. To recap, no more <Switch>, you have to use <Routes>, new attribute with JSX, new hooks
+26. For more info on React Router Hooks: `Using Hooks: React Router <https://blog.logrocket.com/using-hooks-react-router/>`_ 
 
 
 
 Section 2.9: Implementing React Router
 ------------
 
+1. In this video, we implement the React Router so that we can have different routes, different URLs that we can go to in our project in our front end
+2. First off, make sure you're in the ``frontend/`` folder and we're going to ``npm i react-router-dom react-router-bootstrap``
+3. We also want to install the ``react-router-bootstrap`` package, because when we're dealing with links in the navbar or buttons and stuff, we want to use that
+4. Go to ``App.js`` to implement the ``<Router>`` (see Section 2.8, Step 7)
+5. ``BrowserRouter`` uses the HTML5 History API, i.e. push state and replace state, and also hash router
+6. We can alias the above with the following syntax: ``import {BrowserRouter as Router} from react-router-dom``
+7. We needed to wrap our entire App with the ``<Router>`` in order to use it (return ())
+8. Whenever we want to create a ``<Route>``, we provide a ``path`` and what component we want to load when we go to that path 
+9. As an example: ``<Route path='/' element={<HomeScreen />} />``
+10. Navigate to the ``screens/`` folder in VSCode and create a new file: ``ProductScreen.js``
+11. Generate a component 
+12. In ``App.js``, bring that screen in (ProductScreen)
+13. Create a route for that, but with the path to be: ``path='/product/:id'``
+14. The ``/:id`` is a placeholder, and that's going to be looked at as the ``id`` param
+15. Make the ``element`` equivalent to the ``<ProductScreen />`` component
+16. Reviewing the ``Project.js`` file, you can see how the ``<Link>`` uses ``project._id``
+17. Next we fix the ``<Header>`` links so that we maintain a single-page application 
+18. Navigate to ``components/Header.js`` and ``import { LinkContainer } from 'react-router-bootstrap'``
+19. Observe that in ``Product.js`` we ``import { Link } from 'react-router-dom'``
+20. Replacing ``<a>`` tags with ``<Link>`` tags removes the reloading of the pages and is much faster 
+21. ``<LinkContainer>`` from ``react-bootstrap`` allows us to wrap bootstrap components 
+22. ``<LinkContainer>`` can be used multiple times within the same component 
+23. In the next video, we will implement the ``<ProductScreen>``
+24. In the beginning, we will just take from the ``product.js`` file from the array
+25. Ultimately, this data will come from the backend (when seeded), but we use this in the beginning just to get our data showing
+26. Note: This strategy should be utilized in projects moving forward (i.e. Reactionary)
+
+
+
 Section 2.10: Product Details Screen
 ----------------
 
-test
+1. Now we start on the Product page itself, or ``<ProductScreen/>`` 
+2. test 
+3. test 
+4. test 
+5. test 
