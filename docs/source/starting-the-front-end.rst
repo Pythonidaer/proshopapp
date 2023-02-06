@@ -259,7 +259,31 @@ Section 2.10: Product Details Screen
 ----------------
 
 1. Now we start on the Product page itself, or ``<ProductScreen/>`` 
-2. test 
-3. test 
-4. test 
-5. test 
+2. Navigate to ``ProductScreen.js`` and ``import { Link, useParams, useNavigate } from 'react-router-dom'``
+3. Also make sure to ``import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'``
+4. We also use the ``<Rating/>`` component, so import that too  (``from '../components/Rating'``)
+5. Also make sure to bring in our ``products`` from ``'../products'``
+6. Since products is just an array of objects, we can use the higher order array method ``find()``
+7. For each product, where the product._id === match.params.id -- this is code we end up not using 
+8. Now in the ProductScreen, we can dynamically display product.names if we want to 
+9. Use ``<Link className='btn btn-dark my-3' to='/'>`` around text to create a Back button 
+10. Within ``<Row><Col>``, add a ``react-bootstrap <Image>`` component 
+11. Within a separate ``<Col>`` nested within the same ``<Row>``, add a ``<ListGroup>`` with accompanying ``<ListGroup.Item>``s 
+12. To learn more about react-boostrap components, view their `documentation here <https://react-bootstrap-v3.netlify.app/components/list-group/>`_
+13. In the next ``<ListGroup.Item>``, nest within it the ``<Rating>`` component, which as you'll recall can take some props such as ``value`` and ``text``
+14. Review the ``ProductScreen.js`` for more examples of product data being added to LGIs
+15. Within a third ``<Col>``, create a ``react-bootstrap <Card>`` component
+16. Inside here, observe the code for single LGS with one ``<Row>`` of 2 columns in each 
+17. Also observe the ``product.countInStock`` JSX that uses ternary operators for dynamic text 
+18. For now, there is also an "Add to cart" ``react-bootstrap <Button>``
+19. Note that there is good use for this in future projects such as ``Save Comment`` btns 
+20. Also note the ``disabled`` <Button> attribute for when the count in stock is 0
+21. Observe here that a <Button> might be disabled when a User isn't logged in, or simply redirects to a sign-in page when the User isn't logged in 
+22. Note that eventually, the ``userInfo`` state data can determine if one message appears, so perhaps if the user is not "Signed In", one could remove the button or disable it 
+23. As an aside, note that in the ``product.js`` file (in the ``src/``) there is actually a ``_id`` key 
+24. In future videos, we will have a quantity feature on this page, but not until cart is set up 
+25. In the next section, we begin working on the ``backend/``
+26. Brad creates a simple ``express`` server that will serve the products from the backend, as opposed to just the current JavaScript file being used on the ``frontend/``
+27. We are going from the file on the frontend to the backend, where it will be served up 
+28. After that, we will serve it from a MongoDB database 
+29. An important note here: when I work on my Reddit Reactionary App, I'll also want to start off by serving test data via the frontend, then the backend, then finally from the database once data is there.
