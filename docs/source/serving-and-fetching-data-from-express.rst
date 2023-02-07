@@ -44,8 +44,47 @@ Section 3.11: Front End / Back End Workflow & Explanation
 Section 3.12: Serving Products - Back End Routes
 ----------------
 
+1. Before we get into the database, let's serve products from the ``backend/``
+2. React will fetch it from our ``frontend/``
+3. Make sure to run ``npm init`` not inside the ``backend/`` folder but in the root for the server 
+4. Add a description, and make the ``entry point`` be ``server.js``, author and license MIT 
+5. The above will result in a ``package.json`` being created
+6. ``npm i express`` in the root will install Express.js as a dependency
+7. In ``backend/`` create a file called ``server.js`` that will be our entry point for our back end 
+8. Also create a folder called ``data/`` and copy from the ``frontend/src/`` folder the ``products.js`` (that way nothing breaks)
+9. Next, we want to create some routes to serve the products from the backend
+10. In ``server.js``, add ``const express = require('express')``
+11. The above syntax is common JS, which is traditionally what Node.js has used on the frontend
+12. Instead we will be using the ``import`` syntax, which is the ES modules
+13. Add ``const app = express()`` and ``app.listen(5000, console.log('listening on port 5000'))``
+14. Later on this will be in an environment variable and we'll have separate files for routes and models and controllers (i.e. ``.env, backend/models || routes || controllers``) etc.
+15. For now, we just want to serve the ``.json`` products
+16. Run ``node backend/server`` to see "listening on port 5000"
+17. To avoid the tediousness of having to do the above, go into the root ``package.json`` and add a key-value pair to the ``scripts`` section 
+18. In the ``scripts`` object, add ``"start": "node backend/server"`` to run our server from the commandland
+19. The above now logs the same as step 16
+20. Go back to ``server.js`` and add ``app.get('/', (req, res) => { res.send('API is running...')})``
+21. If you go to localhost:5000 in the browser, you will see there too that the API is running
+22. Next we create an api route 
+23. Copy the above code and for the first ``.get()`` param, add ``'/api/products'``
+24. Temporarily go to the ``backend/data/products.js`` file and change the ``export default`` syntax to common JS ``module.exports = products``
+25. Navigate back to the ``server.js`` file and add ``const products = require('./data/products') ``
+26. Within the new ``app.get('/api/'products', ...)`` code, add ``res.json(products)`` in the body 
+27. ``res.json()`` will convert our JavaScript to the JSON type 
+28. Now, if you go to ``localhost:5000/api/products``, you'll notice it gives us the products array 
+29. Add one more route for now: ``app.get('/api/products/:id', (req, res) => { const product = products.find((p) => p._id === req.params.id) res.json(product)})``
+30. This will allow us to access routes for specific products based off their id 
+31. For example: ``localhost:5000/api/products/2``
+32. In the next video, we will return to the frontend React portion and make a request to the backend to get those products, as opposed to just having a file in the ``frontend/src/`` area
+
+
 Section 3.13: Fetching Products from React (useEffect)
 ------------
+
+1. Instead of loading a ``products.js`` file from the ``frontend/``, we want to fetch it from the ``backend/data/`` routes in the back
+2. The ``'api/products'`` will return us this data
+3. Navigate to the ``frontend/`` in your commandline console and prepare to add a new dependency 
+4. test
 
 Section 3.14: Nodemon & Concurrently Setup
 ----------------
