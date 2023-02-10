@@ -83,8 +83,61 @@ Section 3.13: Fetching Products from React (useEffect)
 
 1. Instead of loading a ``products.js`` file from the ``frontend/``, we want to fetch it from the ``backend/data/`` routes in the back
 2. The ``'api/products'`` will return us this data
-3. Navigate to the ``frontend/`` in your commandline console and prepare to add a new dependency 
-4. test
+3. Navigate to the ``frontend/`` in your commandline console and prepare to add a new dependency ``npm i axios``
+4. Axios is an HTTP library - we use it to make requests to our ``backend/``
+5. After download run ``npm start`` again
+6. Go to ``HomeScreen.js`` and add products as component level state
+7. When it comes to state, you have component leven and you have global or application level state
+8. Products will ultimately be global state when we get into Redux
+9. For now, we just make it part of the component
+10. Generally, component level state will be things like a menu component's open and close state
+11. Another example would be forms, the separate fields would be part of your component state
+12. Things like products, users, your cart, stuff like that is going to be global state through Redux
+13. Bring in the ``useState`` hook from React
+14. It is used to use state in functional components
+15. This is opposed to traditional ``Class`` based components with constructor-defined state 
+16. In the functions we don't have a constructor, so we use the useState hook
+17. Set a set of brackets to ``useState`` and pass in two things 
+18. The two things to pass: what we want to call this piece of state, then what we want to call the function to manipulate or change the state 
+19. For example: ``const [products, setProducts] = useState()``
+20. Then, whatever we want to set as a default for products we pass in the useState, which is going to be an empty array: ``useState([])``
+21. At this point, no errors would show, but our component would be mapping over an empty array 
+22. What we want to do now is use the ``useEffect`` hook to make a request to our backend 
+23. We want this because what useEffect does is we define it, and it takes in an arrow function, and whatever we put in here is going to run as soon as the component loads
+24. So as soon as ``HomeScreen.js`` loads, that ``useEffect(() => {console.log('hi')})`` is going to fire off 
+25. That's where we want to make our request because we want these products as soon as the component loads
+26. In the useEffect is where we're going to make our axios requests 
+27. We are going to use ``async, await`` syntax 
+28. ``async, await`` returns a promise
+29. To achieve this, we have to create a separate (asynchronous) function within useEffect 
+30. ``const fetchProducts = async () => { const res = await axios.get('/api/products') }``
+31. The above ``res`` would have a ``data`` object assigned to it (res.data)
+32. We can use the data variable directly through destructuring: ``const { data }`` not res
+33. Once we fetch that data, we want to set it to the product
+34. In other words, we want to change this empty array to the data that we get back from the endpoint
+35. We do that by calling ``setProducts`` as that's what we defined above to change the piece of state
+36. Outside of ``fetchProducts`` call the function (within ``useEffect``)
+37. As a second argument to ``useEffect`` you want to pass in an array of dependencies
+38. What this means is anything you want to fire useEffect off when it changes
+39. Generally, React will give you warnings if you put stuff in and you don't claim it as a dependency
+40. So the syntax right now will be: ``useEffect(() => { ...const fetchProducts... }, [])``
+41. Don't forget to ``import axios from 'axis'``
+42. Also note that this is temporary, because later on we're going to use Redux and we make all of our requests from what are called ``action creators``
+43. Create a proxy by going into the ``frontend/`` ``package.json``
+44. Add this line of code: ``"proxy": "http://127.0.0.1:5000/"`` then restart frontned server
+45. Now we should be getting the products from our ``backend/``
+46. If you open up ``Network`` tab in console then ``Response`` you get to see the data that is coming back 
+47. You can also see the ``Headers`` such as ``Status`` and ``content-type``
+48. Repeat the process and navigate to ``ProductScreen.js``
+49. Bring in both hooks: ``import React, {useState, useEffect} from 'react'``
+50. ``const [product, setProduct] = useState({})`` because a single product is an object 
+51. Copy the whole useEffect from the last page and take the s off (``setProduct``; ``fetchProduct``)
+52. The route is going to be ``/api/products/${params.id}`` to hit whatever the clicked id is
+53. Then we want setProduct, then we call fetchProduct, and remember to bring in axios!
+54. Check the Chrome Tools ``Network`` tab again to see the id 
+55. The ``frontend`` product.js can now be deleted
+56. In the next video, we will add ``nodemon`` so we don't have to keep restarting the server
+57. We will also use a package called ``concurrently`` so we can run both the ``backend/`` and the ``frontnend/`` at the same time with the same command instead of having to run react in one window and express in another
 
 Section 3.14: Nodemon & Concurrently Setup
 ----------------
