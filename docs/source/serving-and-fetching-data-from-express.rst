@@ -142,6 +142,26 @@ Section 3.13: Fetching Products from React (useEffect)
 Section 3.14: Nodemon & Concurrently Setup
 ----------------
 
+1. Return to root folder and install two packages: ``npm i -D nodemon concurrently``
+2. The ``-D`` installs them as dev depencdencies because we only need them for development
+3. These should get added to our root ``package.json``
+4. We can use ``nodemon`` to constantly watch our server to avoid constant manual resets 
+5. That way we don't have to restart the server constantly
+6. To use nodemon, we're going to create a script in the root json 
+7. We have our ``start`` script, which runs the backend server file 
+8. Create a ``server`` script that runs it with ``nodemon``
+9. We can also write a script for the ``frontend/``: ``"server": "nodemon backend/server"`` and ``"client": "npm start --prefix frontend"``
+10. The above syntax in ``client`` allows us to add --prefix then the name of our folder
+11. This basically makes it so that our script goes into the folder first then runs ``npm start``
+12. Type ``npm run server`` in the root to see the port and the frontend sections run
+13. Next we will use ``concurrently`` to run both scripts at the same time
+14. Add the script ``"dev": "concurrently \"npm run server\" \"npm run client\""``
+15. The quotes need to be escaped
+16. What this achieves is both our localhost:3000 and localhost:5000
+17. Now that we can run the ``frontend/`` and the ``backend/`` at the same time, in the next video we will start to look at environment variables
+18. For example: the ``PORT`` put into a ``.env``, the node ``environment``
+19. Basically any sensitive information we'll be putting into this file
+
 Section 3.15: Environment Variables
 ------------
 
