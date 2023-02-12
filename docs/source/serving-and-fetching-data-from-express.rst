@@ -165,6 +165,20 @@ Section 3.14: Nodemon & Concurrently Setup
 Section 3.15: Environment Variables
 ------------
 
+1. Navigate to `npmjs.com/package/dotenv <npmjs.com/package/dotenv/>`_ 
+2. In the root of the commandline (``propshop``), run ``npm i dotenv``
+3. Test running ``npm run server``
+4. Navigate to ``server.js`` and for now use ``const dotenv = require('dotenv')``
+5. Then enter ``dotenv.config()``
+6. Create ``.env`` in the root file then define any environment variables (like API Keys, token secrets, etc.)
+7. In the ``.env``, set ``NODE_ENV = development`` and ``PORT = 5000``
+8. Whenever you add an environment variable, you want to make sure to restart your server
+9. Towards the end of the ``server.js``, add ``const PORT = process.env.PORT || 5000``
+10. Then modify ``app.listen`` to contain ``(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`))`` to read the port and the mode from the .env file
+11. We can now use the above syntax with any environment variable throughout the whole application
+12. If the ``.env`` has any sensitive information, absolutely make sure it is inside the ``.gitignore``
+13. In the last video, we change the common JS ``require`` syntax to ``ES6 Modules`` to have the same type as we do on the ``frontend/``
+
 Section 3.16: ES Modules in Node.js
 ----------------
-test
+1. test
