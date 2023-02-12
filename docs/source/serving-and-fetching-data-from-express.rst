@@ -165,7 +165,7 @@ Section 3.14: Nodemon & Concurrently Setup
 Section 3.15: Environment Variables
 ------------
 
-1. Navigate to `npmjs.com/package/dotenv <npmjs.com/package/dotenv/>`_ 
+1. Navigate to `npmjs.com/package/dotenv <https://npmjs.com/package/dotenv/>`_ 
 2. In the root of the commandline (``propshop``), run ``npm i dotenv``
 3. Test running ``npm run server``
 4. Navigate to ``server.js`` and for now use ``const dotenv = require('dotenv')``
@@ -181,4 +181,15 @@ Section 3.15: Environment Variables
 
 Section 3.16: ES Modules in Node.js
 ----------------
-1. test
+
+1. ``import`` syntax is the ECMA modules (ES6) and we will use them over common JS 
+2. Make sure to add  ``"type": "module"`` to your root ``package.json`` to use them 
+3. In the ``backend/``, you have to add .js to the end of your files 
+4. Not on your packages like ``dotenv`` or ``express``, but on files like ``products.js``
+5. Change the ``const express = require('express')`` syntax to ``import expres from 'express'``
+6. Om tje ``products.js`` file, change the common JS syntax ``module.exports`` to ES6 ``export default`` syntax
+7. Type ``npm run dev`` again
+8. In the next section, we will begin to implement our database 
+9. Currently we are just serving the ``products.js`` file
+10. Ultimately we want to serve it from MongoDB and to also use MongoDB Atlas (a cloud db)
+11. We will also use something called Mongo DB Compass, which is a desktop program that allows us to log into our database and see our data and change it and do whatever
