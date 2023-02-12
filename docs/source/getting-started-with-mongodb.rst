@@ -45,27 +45,78 @@ Section 4.17: MongoDB Atlas & Compass Setup
 Section 4.18: Connecting To The Database
 ----------------
 
-1. test
-2. test 
-3. test
+1. Next we're going to be connecting to our database through our application
+2. We're going to use a tool called Mongoose, which is object modeling for Node.js 
+3. This basically allows us to create a model and a schema for different resources in our database: like products, users, and so on
+4. Check out  `mongoosejs.com <https://mongoosejs.com/>`_ documentation
+5. We can even create Mongoose ``middleware`` that runs when you do certain things like save a document
+6. Next we are going to install and connect
+7. For this, make sure you are in your root (don't install this on the ``frontend/``)
+8. Enter ``npm i mongoose`` and note that there are different ways to structure this 
+9. What Travery does here in the ``backend/`` is create a folder called ``config/``
+10. Inside ``config/`` create a file called ``db.js`` and this will be our db/connection file
+11. ``import mongoose from 'mongoose'`` in ``db.js`` 
+12. Then ``const connectDB = async () => { ... }``
+13. This will be asynchronous, because when we deal with MongoDB, when we call ``.connect`` or ``.find()`` or ``.create()`` or whatever, it's always going to ``return`` a ``Promise``
+14. Then insert a ``try { ... } catch (error) { ... }`` code block inside of the function 
+15. In the ``try``, add ``const conn = await mongoose.connect(process.env.MONGO_URI)``
+16. Then, ``console.log(`MongoDB Connected: ${conn.connection.host}`)``
+17. In the ``error`` add ``console.error(`Error: ${error.message}`)``
+18. Next, add ``process.exit(1)`` because the 1 means we will exit with failure
+19. Finally, add ``export default connectDB`` to export the function 
+20. Navigate to the ``server.js`` file and ``import connectDB from './config/db.js'``
+21. Note that we have to add ``.js`` when we're importing files because we're on the ``backend/`` using ES6 modules with Node, and that is one of the current rules
+22. Below ``dotenv.config()``, add ``connectDB()``
+23. The next time you run your application, you should connect to the server
+24. From the root, enter ``npm run server`` in commandline
+25. Check the console to confirm that you have successfully connected
+26. In the next video, we will install a package called ``colors`` so that we can add colors to our console and make these messages pop a bit more 
 
 Section 4.19: Adding Colors To The Console (Optional)
 ------------
 
+1. test
+2. test 
+3. test
+
 Section 4.20: Modeling Our Data
 ----------------
+
+1. test
+2. test 
+3. test
 
 Section 4.21: Preparing Sample Data
 ------------
 
+1. test
+2. test 
+3. test
+
 Section 4.22: Data Seeder Script
 ----------------
+
+1. test
+2. test 
+3. test
 
 Section 4.23: Fetching Products From The Database
 ----------------
 
+1. test
+2. test 
+3. test
+
 Section 4.24: Getting Started With Postman
 ------------
 
+1. test
+2. test 
+3. test
+
 Section 4.25: Custom Error Handling
 ----------------
+
+1. test
+2. test 
+3. test
