@@ -75,9 +75,17 @@ Section 4.18: Connecting To The Database
 Section 4.19: Adding Colors To The Console (Optional)
 ------------
 
-1. test
-2. test 
-3. test
+1. This next package is optional: `npmjs.com/package/colors <https://www.npmjs.com/package/colors`_ 
+2. This will allow us to just have colors in the console 
+3. We can underline, bold text, inverse styles
+4. Enter ``npm i colors`` from the root then ``npm run server`` once more
+5. ``import colors from 'colors'`` in ``server.js``
+6. Update ``db.js`` log to ``(`MongoDB Connected: ${conn.connection.host}`.cyan.underline)``
+7. You can also update error log to ``(`Error: ${error.message}`.red.underline.bold)``
+8. What we will do in the next video is start to create some ``data models``
+9. With NoSQL, you don't do that stuff on a database level as you would with, say, MySQL or Postgres
+10. With Postgres you would use something like PG admin or a migration and you would set up your fields with the data types
+11. With MongoDB, we do that at the application level
 
 Section 4.20: Modeling Our Data
 ----------------
