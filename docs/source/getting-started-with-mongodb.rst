@@ -94,12 +94,12 @@ Section 4.20: Modeling Our Data
 2. After we create the models, we are going to create a seeder script 
 3. The seeder script is so we can ``import`` some dummy data to work with 
 4. In the ``backend/`` folder create a folder called ``models/``
-5.
-6.
-7.
-8.
-9.
-10.
+5. test
+6. test
+7. test
+8. test
+9. test
+10. test
 
 Section 4.21: Preparing Sample Data
 ------------
