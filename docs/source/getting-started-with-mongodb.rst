@@ -75,7 +75,7 @@ Section 4.18: Connecting To The Database
 Section 4.19: Adding Colors To The Console (Optional)
 ------------
 
-1. This next package is optional: `npmjs.com/package/colors <https://www.npmjs.com/package/colors`_ 
+1. This next package is optional: `npmjs.com/package/colors <https://www.npmjs.com/package/colors>`_ 
 2. This will allow us to just have colors in the console 
 3. We can underline, bold text, inverse styles
 4. Enter ``npm i colors`` from the root then ``npm run server`` once more
