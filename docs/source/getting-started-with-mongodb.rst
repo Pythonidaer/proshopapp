@@ -90,9 +90,16 @@ Section 4.19: Adding Colors To The Console (Optional)
 Section 4.20: Modeling Our Data
 ----------------
 
-1. test
-2. test 
-3. test
+1. Here we are going to create all 3 models
+2. After we create the models, we are going to create a seeder script 
+3. The seeder script is so we can ``import`` some dummy data to work with 
+4. In the ``backend/`` folder create a folder called ``models/``
+5.
+6.
+7.
+8.
+9.
+10.
 
 Section 4.21: Preparing Sample Data
 ------------
