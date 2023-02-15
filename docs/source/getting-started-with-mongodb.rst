@@ -94,12 +94,44 @@ Section 4.20: Modeling Our Data
 2. After we create the models, we are going to create a seeder script 
 3. The seeder script is so we can ``import`` some dummy data to work with 
 4. In the ``backend/`` folder create a folder called ``models/``
-5. test
-6. test
-7. test
-8. test
-9. test
-10. test
+5. We will have 3 models for 3 resources in our database
+6. These models will be: the Users, the Products and the Orders
+7. Create a file and name it ``userModel.js``, then again for ``productModel.js`` and ``orderModel.js``
+8. ``import mongoose from 'mongoose'`` then create a ``const userSchema = ...``
+9. Set that variable to ``mongoose.Schema()`` then pass in an object
+10. This object is where we will define all the fields that we want for a user 
+11. Observe common keys: ``name``, ``type``, and whether or not a field is ``required``
+12. For this ``User`` model, also observe ``email`` and ``unique`` to avoid email repeats
+13. Also observe ``password`` and ``isAdmin``, which could be used for addtl. permissions as well as features
+14. Finally, observe here ``default`` so that it is false that a User is an admin initially
+15. In Traversy's course, an Admin will have to make another ``User`` an admin
+16. Mongoose schemas support ``timestamps`` option, that can provided two fields: ``createdAt`` and ``updatedAt``
+17. Read more about these and other features `here <https://mongoosejs.com/docs/timestamps.html/>`_ 
+18. Next, create a ``model`` from the now-created ``Schema``
+19. Use the code ``const User = mongoose.model('User', userSchema)`` and ``export default User``
+20. Repeat the same process for ``const = productSchema`` in ``productModel.js``, however observe a key relational difference
+21. Create a ``user: { ... } `` field to later identify which admin (``User``) created which products (alternatively, figure out which user creates which saved post)
+22. In ``user``, add ``type: mongoose.Schema.Types.ObjectId``
+23. We need to reference a specific model for this object id: ``ref: 'User'``
+24. The above adds a relationship between the ``Product`` and the ``User``
+25. Observe other key properties here, such as ``image``, ``category``, ``required``, etc.
+26. Compare a Product here to, say, a Reddit Post (my idea for the next project)
+27. Also note that there is a ``default`` value used with the ``rating`` field
+28. Observe that one field, ``reviews``, is an ``array`` of review ``objects``, and that we actually will have a separate ``Schema`` called ``reviewSchema``: ``reviews: [reviewSchema]``
+29. Observe the final draft of ``productModel.js``, and make sure to ``export default Product``
+30. Observe that tying schemas to models results in only needing to export the model(s)
+31. The ``Order`` model is the biggest model as far as the number of fields
+32. Notice how the ``orderItems`` field is an array of objects referencing the ``Product`` model
+33. Observe that the ``Product`` objects also possess a ``type: mongoose.Schema.Types.ObjectId`` field in order to have a relationship to the order by product id
+34. For the ``paymentMethod`` attribute, Brad keeps it general to make it scalable to add other payment gateways besides PayPal (such as Stripe)
+35. Observe that the ``paymentResults`` object contains fields for data that will be  received back from the PayPal API (when successful)
+36. Observe how ``isPaid`` and ``isDelivered`` are ``Boolean`` types that can later be modified later in the course (how?)
+37. ``export default Order`` and review the final file of ``orderModel.js``
+38. In the next section, we will prepare data for importing into the database
+39. In particular we also want to add some ``Users`` as well
+40. After we prepare, our data will go ahead and create a data center script to seed the database with the sample data 
+41. Then we can move on and we can start to ``fetch`` data from MongoDB, our products, then get into *user authentication* and go from there
+
 
 Section 4.21: Preparing Sample Data
 ------------
