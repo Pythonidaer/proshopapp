@@ -136,9 +136,25 @@ Section 4.20: Modeling Our Data
 Section 4.21: Preparing Sample Data
 ------------
 
-1. test
-2. test 
-3. test
+1. Now we will prepare some data to be imported into our database to work with
+2. To some extend we will use the ``data/products.js`` 
+3. Before we set up our data seeder script, we need to get rid of the ``_id``s
+4. Because when data is entered into MongoDB, it automatically creates an ``_id`` field
+5. Next, create a file in ``data/`` called ``users.js``
+6. Create an array of 3 users, with one of them being an admin
+7. These ``users`` have to have only the fields that we have in our ``User`` model, or ``mongoose`` isn't going to let us insert it into the database
+8. There will be ``name``, ``email``, and ``password`` - the last will have to be hashed
+9. We are going to bring in ``bcrypt``, which is used to hash or encrypt passwords
+10. Set ``isAdmin`` to ``true``
+11. ``isAdmin`` is ``false`` by default, so the non-admin users don't need that field added
+12. In the ``propshop`` root, run ``npm i bcryptjs`` (not bcrypt, which is more dependencies)
+13. In the ``users.js`` file, ``import bcrypt from 'bcrypt.js'``
+14. There are a few different ways to hash passwords 
+15. Normally we want to do this asynchonrously, but since this is test data, Traversy uses the hash sync method, which will hash the passwords synchronously
+16. Note here that the first param is the plaintext password: ``bcrypt.hashSync('123456', 10)``
+17. The second param is the number of rounds, with 10 being a default and secure number 
+18. ``export default users``
+19. In the next video, we will go ahead and create the ``seeder`` script
 
 Section 4.22: Data Seeder Script
 ----------------
