@@ -159,9 +159,53 @@ Section 4.21: Preparing Sample Data
 Section 4.22: Data Seeder Script
 ----------------
 
-1. test
-2. test 
-3. test
+1. Now that we have our ``models/``, and sample data for ``products`` and ``users``, we can create a database seeder to easily import some sample data (users and products)
+2. In ``backend/`` folder, create a new file called ``seeder.js`` 
+3. This isn't part of our application, it's just a separate script so that we can run to import data
+4. ``import mongoose, dotenv, colors, users, products, User, Product, Order`` and ``connectDB`` from their respective locations
+5. We're not actually creating any orders with the seeder, but Traversy does want the ability to ``destroy`` all users, products and orders (so we do need the model to remove data)
+6. Review the file and enter ``dotenv.config()`` followed by ``connectDB()``
+7. We are creating two functions: one is going to impport dat aand one is going to destroy data 
+8. This is going to be asynchronous because we're dealing with the database or dealing with ``mongoose``
+9. So, everything returns a ``Promise``
+10. Create ``const importData = async () => {}`` and in the code block add a ``try catch`` section 
+11. In the ``try``, add ``await Order.deleteMany()`` and repeat the same for ``Product`` and ``User``
+12. What this will do is clear all those because we don't want to import anything with stuff already in the database (this will completely wipe it out)
+13. Next we can add ``await User.insertMany(users)`` so we can import the ``users`` data 
+14. Next create a variable called ``const createdUsers = `` and store the above inside of it to create an array of the created ``users``
+15. Capture the admin by adding the line ``const adminUser = createdUsers[0]._id`` as it is the first array element
+16. Next add the line ``const sampleProducts = products.map((product) => { return { ...product, user: adminUser }})
+`` 
+17. In the above: for each ``product``, return an object with all of the stuff that's in it already 
+18. We achieve this by using the spread operator, which spreads across all of the data that's already ther
+19. In addition to that, we add the ``user`` field, the ``adminUser`` that we pulled in step 15
+20. So far, nothing is in the database, but we have everything stored inside of ``sampleProducts``
+21. In the next line add ``await Product.insertMany(sampleProducts)`` to add all the ``product`` data, which is also now going to include the ``admin`` user
+22. Finally, add a line ``console.log('Data Imported!'.green.inverse)`` then ``process.exit()``
+23. Within the ``catch``, add the parameter ``error`` followed by ``console.error(`${error}.red.inverse`)`` and ``process.exit(1)`` to log the error to the console and exit the process with a failure (1)
+24. Create another function ``const destroyData = async () => { ... } `` containing another ``try catch`` block
+25. As opposed to the above where we clear the database before importing data, here we just delete the data 
+26. Review the ``seeder.js`` file and observe that the ``deleteMany()`` calls remain, just not the ``insertMany()``
+27. Repeat the same error content in the ``catch`` portion
+28. Run ``node backend/seeder`` to do the import 
+29. Run ``node backend/seeder -d`` to do destroy the data
+30. To achieve this, lastly add the code ``if (process.argv[2] === '-d') { destroyData()} else { importData() }``
+31. This uses ``Node.js`` to check for whether the second ``argument variable`` after ``node`` is ``-d`` or not
+32. Instead of leaving the call to the console, Traversy creates an npm ``script``
+33. Head to the main ``package.json`` and under ``scripts`` add ``"data:import"`` and ``"data:destroy"`` 
+34. The two above scripts will contain the seeder and seeder -d calls
+35. From the main ``proshop`` root, run ``npm run data:import`` and observe if the console says ``Date Imported!``
+36. Navigate to ``MongoDB Compass`` on your desktop, click the top nav ``View`` option, then select ``Reload Data``
+37. We should now be able to see all of our ``products`` and ``user`` data
+38. Each of the ``products`` should have the same ``user`` field, because we added the ``admin`` to each ``product``
+39. You can verify this by navigating to the ``users`` collection and taking a look at the ``admin _id`` value
+40. Notice that the password is hashed 
+41. Next, from the console again run ``npm run data:destroy``, check the console, and ``View > Reload Data`` once more
+42. Watch out for this, as this will delete live data so if you ever have real stuff it will get wiped from the db 
+43. We basically just wanted to get data in there in the beginning, we can even delete it if we want to
+44. In the next section, we start to ``fetch`` data from the database in our ``backend/`` 
+45. That way, in our ``fronend/`` we can make our ``request`` to the roots and get data from the database as opposed to right now, where we're just getting from ``products.js`` which is currently probably broken since we removed the ``_id`` value (notice how MongoDB re-added it)
+
 
 Section 4.23: Fetching Products From The Database
 ----------------
