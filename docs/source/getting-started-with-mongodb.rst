@@ -210,9 +210,41 @@ Section 4.22: Data Seeder Script
 Section 4.23: Fetching Products From The Database
 ----------------
 
-1. test
-2. test 
-3. test
+1. In this section we begin to fetch our ``products`` from the ``database``
+2. Currently, we just have two ``routes`` directly from our ``server.js`` file that get ``products`` from the ``products.js`` file
+3. In the ``backend/`` folder, create a ``routes/`` folder and create a ``productRoutes.js`` file
+4. ``import express from 'express'``
+5. Create a variable ``const router = express.Router()``
+6. ``export default router``
+7. Paste the ``routes`` from ``server.js`` into the ``productRoutes`` file, but change ``app`` to ``router``
+8. Since we will point to this file, remove the ``'/api/products'`` syntax (``'/api/products/:id'`` becomes ``'/:id'``)
+9. In ``server.js``, ``import productRoutes from './routes/productRoutes.js'`` (ES6 modules used, so add the .js)
+10. Mount the imported route with the syntax: ``app.use('/api'/products', productRoutes)``
+11. Go back to the ``productRoutes.js`` file and ``import Product from '../models/productModel'``
+12. Where we get all our ``products``, add ``const products = Product.find({})`` and pass in an empty object, which just gives us everything (and returns a ``Promise``)
+13. Remember, whenever we use a ``mongoose`` method it returns a ``Promise``, so we use ``await`` and ``async``
+14. Therefore, change the syntax to: ``router.get('/', async (req, res) => { const products = await ... })``
+15. To avoid adding a ``try, catch`` block to every route grouping, import the ``express-async-handler`` library 
+16. Read more about how this simple middleware handles exceptions inside of async express routes `here <https://www.npmjs.com/package/express-async-handler>`_ 
+17. In the main root folder, ``npm i express-async-handler`` then ``import asyncHandler from 'express-async-handler'``
+18. Next, wrap the async like so: ``router.get('/', asyncHandler(async (req, res) => { ... }))``
+19. Next, for the specific ``/:id`` route, add in the block ``const product = await Product.findById(req.params.id)``
+20. The above will give us whatever the ``/id`` is that is in the URL
+21. Next, add ``if(product){res.json(product)}`` and ``else{res.status(404).json({message: 'Product not found' })}``
+22. Repeat the steps from step 18. to wrap the ``/:id`` route in ``asyncHandler`` as well 
+23. COMMENTS: add a header for each ``route`` that says what it is, as well as the ACCESS level (i.e. admin, private/public)
+24. Use this syntax: ``// @desc Fetch all products // @route GET /api/products // @access Fetch all products``
+25. Please note, Traversy has been taking us one step at a time to help people get a clearer picture of what's going on 
+26.
+27. What Traversy means by ``@access`` is that for some ``routes``, we'll need a ``token``
+28. For example, you'll need to be logged in to perform certain tasks - you'll need to send a token to specific routes, and those will be private routes
+29. PUBLIC routes means that anyone can hit it 
+30. Repeat the comments for the second route, then head over to Postman to test routes on the ``backend/``
+31. From the console, run ``npm run server`` to for now just test the URL in the browser
+32. What you should see for, say, ``localhost:5000/api/products`` is all the Product data from the database
+33. Likewise, adding ``/id`` of one of the ``product ids`` in the browser URL should return one product's data
+34. Try adding a separate number to the end of the ``id`` in the URL to replicate the ``Not found`` error in the browser (a 404), and you can verify by checking the ``Headers`` inside of the ``Network`` tab
+35. In the next section, we are going to start using Postman and also start setting up ``GLOBAL`` variables
 
 Section 4.24: Getting Started With Postman
 ------------
@@ -220,6 +252,27 @@ Section 4.24: Getting Started With Postman
 1. test
 2. test 
 3. test
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+16.
+17.
+18.
+19.
+20.
+21.
+22.
+23.
+24.
 
 Section 4.25: Custom Error Handling
 ----------------
@@ -227,3 +280,24 @@ Section 4.25: Custom Error Handling
 1. test
 2. test 
 3. test
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+16.
+17.
+18.
+19.
+20.
+21.
+22.
+23.
+24.
