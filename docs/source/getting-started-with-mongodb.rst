@@ -235,44 +235,38 @@ Section 4.23: Fetching Products From The Database
 23. COMMENTS: add a header for each ``route`` that says what it is, as well as the ACCESS level (i.e. admin, private/public)
 24. Use this syntax: ``// @desc Fetch all products // @route GET /api/products // @access Fetch all products``
 25. Please note, Traversy has been taking us one step at a time to help people get a clearer picture of what's going on 
-26.
-27. What Traversy means by ``@access`` is that for some ``routes``, we'll need a ``token``
-28. For example, you'll need to be logged in to perform certain tasks - you'll need to send a token to specific routes, and those will be private routes
-29. PUBLIC routes means that anyone can hit it 
-30. Repeat the comments for the second route, then head over to Postman to test routes on the ``backend/``
-31. From the console, run ``npm run server`` to for now just test the URL in the browser
-32. What you should see for, say, ``localhost:5000/api/products`` is all the Product data from the database
-33. Likewise, adding ``/id`` of one of the ``product ids`` in the browser URL should return one product's data
-34. Try adding a separate number to the end of the ``id`` in the URL to replicate the ``Not found`` error in the browser (a 404), and you can verify by checking the ``Headers`` inside of the ``Network`` tab
-35. In the next section, we are going to start using Postman and also start setting up ``GLOBAL`` variables
+26. What Traversy means by ``@access`` is that for some ``routes``, we'll need a ``token``
+27. For example, you'll need to be logged in to perform certain tasks - you'll need to send a token to specific routes, and those will be private routes
+28. PUBLIC routes means that anyone can hit it 
+29. Repeat the comments for the second route, then head over to Postman to test routes on the ``backend/``
+30. From the console, run ``npm run server`` to for now just test the URL in the browser
+31. What you should see for, say, ``localhost:5000/api/products`` is all the Product data from the database
+32. Likewise, adding ``/id`` of one of the ``product ids`` in the browser URL should return one product's data
+33. Try adding a separate number to the end of the ``id`` in the URL to replicate the ``Not found`` error in the browser (a 404), and you can verify by checking the ``Headers`` inside of the ``Network`` tab
+34. In the next section, we are going to start using Postman and also start setting up ``GLOBAL`` variables
 
 Section 4.24: Getting Started With Postman
 ------------
 
-1. test
-2. test 
-3. test
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
+1. Download the Postman to your desktop (it's great for working with APIs))
+2. Once you have it on your desktop, open it and create a new ``colection`` for our ``APIs`` 
+3. Call it ``proshop`` and give it a basic description 
+4. Create separate folders within the collection, such as one for ``products``
+5. In the ``products`` Postman folder, create a new ``GET`` route called ``/api/products``
+6. Enter ``http://localhost:5000/api/products`` inside of the URL then click ``Send``
+7. Afterwards, you should get your ``data`` back, nicely formatted
+8. Data includes things like the ``time``, ``size preview``, even rendered ``HTML``
+9. This is powerful because you can make all types of ``requests`` from here (``PUT, POST, DELETE``) etc.
+10. We can also send ``Headers`` and/or data in the ``Body`` as ``form-data``, ``raw JSON``, etc.
+11. Next, in the top-right corner add an environment called ``ProShop Env``, and a ``GLOBAL variable`` called ``URL``
+12. Make the ``URL`` be ``http://localhost:5000`` - you could even change this to the DOMAIN name if you deploy!
+13. When you use ``variables`` in Postman, they are going to be wrapped in double curly braces (i.e., ``{{URL}}``)
+14. Observe how ``GET``ting ``{{URL}}/api/products`` returns the same data as step 6
+15. ``Save`` the request, then repeat the process for ``/api/products/:id``
+16. Go back to the all ``products`` response data, grab an ``_id``, then replace the ``:id`` placeholder with that 
+17. You should now get that single product's data when you click ``Send``
+18. Note that we don't want to serve any ``HTML`` from our ``backend/`` folder, only JSON API
+19. In the next video, we create a custom ``Error`` handler so that we can get our own custom ``JSON`` message if something goes wrong
 
 Section 4.25: Custom Error Handling
 ----------------
