@@ -271,27 +271,39 @@ Section 4.24: Getting Started With Postman
 Section 4.25: Custom Error Handling
 ----------------
 
-1. test
-2. test 
-3. test
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
+1. Out of the box, when we get an error we get an ``HTML`` file and we don't want that 
+2. We want to send back a ``JSON object`` with a ``message``
+3. Traversy also shows us how to add the ``stack trace`` to it if we're in ``development mode``
+4. To create a custom ``error handler``, we just haev to add some custom ``middleware``
+5. ``Middleware`` is basically a function that has access to the requests' ``reponse`` cycle
+6. Wehn we make a ``request``, we can have a ``function`` that can access anything in these ``req/res objects``
+7. Navigate to ``server.js`` to see an example ``app.use(req.res, next) => {console.log('hi')next()})``
+8. From here we have access to anything within the ``req`` (request) object
+9. Please note that, when we deal with our authentication middleware, we're going to assign the logged in user to ``req.user`` then we'll be able to use that in any ``route`` we want
+10. Under the routes, create your error handler middleware
+11. Whenever you want to overwrite the default error handler, add a function that takes an error first and then request response next
+12. For example: ``app.use((err, req, res, next) => { const statusCode = res.statusCode === 200 ? 500 : res.statusCode})``
+13. ``500`` is a server error, and sometimes we'd still get a ``200`` even though there's an error
+14. Below that, add ``res.status(statusCode)`` ``res.json({ message: err.message })``
+15. Within that json, also add ``stack: process.env.NODE_ENV === 'production' ? null : err.stack``
+16. The above line only returns the ``stack trace`` if we aren't in production
+17. Go back to Postman and change the ``/:id`` route to ``/api/products/1`` to get the new ``Error`` message
+18. We also want to have fallback errors for ``404`` which is a not found route
+19. Above our error handler, add ``app.js((req, res, next) => {const error = new Error(`not Found - ${req.originalURL}`) res.status(404) next(error)})``
+20. Now use Postman and search for ``{{URL}}/api/test`` to see the ``Error: Not Found `` response
+21. To keep our ``server.js`` file tidy, in the ``backend/`` create a ``middleware/`` folder 
+22. Then create an ``errorMiddleware.js`` file with ``const notFound`` and ``const errorHandler``
+23. From the ``server.js`` codes, remove all the code from ``app.use()`` and insert them into each variable above 
+24. Next just ``export { notFound, errorHandler }`` from the ``errorMiddleware`` file 
+25. From the ``server.js`` file, ``import {notFound, errorHandler}`` from the middleware file
+26. Then below, make sure the middleware now appears like this: ``app.use(notFound)`` and ``app.use(errorHandler)``
+27. In our ``productRoutes.js`` file, replace our ``res.status(404)`` code with ``throw new Error('Product not found')``
+28. Now the ``productRoute`` will go threw our custom error handler when an incorrect id (same length) is provided
+29. Also in the ``productRoutes.js``, keep in mind that if we don't set the ``status`` of the ``response``, we can simply keep it at ``500``, otherwise we can set the status (optional) and throw a new Error
+30. In the next section, we return to our ``frontend/`` and get into ``Redux``
+31. Currently we are fetching data from the database (even from ``npm run dev`` from the frontend) right from the component (in the ``frontend/``), which is not what Traversy wants to do
+32. Traversy wants to use ``Redux`` so that we have our global state where we can get the ``products`` then pass them down
+33. We will have to create ``reducers`` and ``actions`` to do that 
+34. To conclude, in the next section we get started working with our ``global state``
+
+
