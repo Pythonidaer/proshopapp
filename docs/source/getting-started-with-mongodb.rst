@@ -276,7 +276,7 @@ Section 4.25: Custom Error Handling
 3. Traversy also shows us how to add the ``stack trace`` to it if we're in ``development mode``
 4. To create a custom ``error handler``, we just haev to add some custom ``middleware``
 5. ``Middleware`` is basically a function that has access to the requests' ``reponse`` cycle
-6. Wehn we make a ``request``, we can have a ``function`` that can access anything in these ``req/res objects``
+6. When we make a ``request``, we can have a ``function`` that can access anything in these ``req/res objects``
 7. Navigate to ``server.js`` to see an example ``app.use(req.res, next) => {console.log('hi')next()})``
 8. From here we have access to anything within the ``req`` (request) object
 9. Please note that, when we deal with our authentication middleware, we're going to assign the logged in user to ``req.user`` then we'll be able to use that in any ``route`` we want
