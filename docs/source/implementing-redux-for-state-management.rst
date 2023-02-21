@@ -80,9 +80,37 @@ Section 5.27: Create a Redux Store
 Section 5.28: Product List Reducer & Action
 ------------
 
-1.
-2.
-3.
+1. Now we get into the whole flow of creating a ``constant``, creating ``reducer`` and ``action`` then bringing that into our components
+2. In ``frontend/src/`` create a folder called ``reducers/``
+3. Each resource of our application will have a ``reducer`` file such as products: ``productReducers.js``
+4. The above filename is plural because it's going to have a bunch of different reducer functions in there, all related to products
+5. The first one we will create is ``productListReducer``, which is going to handle the state for the product lists, which we see on the Home Page
+6. A reducer takes in two things: the ``initial state`` (such as an empty object), then it takes an ``action``
+7. Start off with this code: ``export const productListReducer = () => {}``
+8. When we create an ``action``, we're going to ``dispatch`` or we ``create`` an ``action reducer``, we are going to dispatch an action to this reducer
+9. This object will have a ``type``, and we will evalate that type to do a certain thing depending on what ``type`` that is
+10. It might also contain a ``payload``; this one will as it's going to add in products and set that to an empty array
+11. In the initial ``state``, add in ``state = { products: [] }``
+12. We use a switch syntax to evaluate the type that's in the action object 
+13. Add in the code block this syntax: ``switch (action.type) { ... }`` - there will be 3 different ``types`` that we look for
+14. One is the products list ``request``, where it's when we actually make the request 
+15. One is going to be the product list ``success``, which is if we get a successful response and we get the data 
+16. One is going to be it if fails then we send an ``error`` through the ``state``
+17. Add in this first ``case 'PRODUCT_LIST_REQUEST': return { loading: true, products: [] } ``
+18. In all of our cases, we just want to return this piece of this part of the ``state``
+19. We set ``loading`` to true in the request case, because when we make the request, we want the component to know that it's currently ``fetching``, so it's currently loading
+20. The returned ``products`` empty array is because the request hasn't been fulfilled yet, so we don't have data populating it from the database 
+21. Next, add the ``case 'PRODUCT_LIST_SUCCESS':, and return { loading: false, products: action.payload }`` because it's done loading once the request has completed successfully
+22. As you can see above, ``products`` will be filled with that ``action`` object; they'll be a ``payload`` attached to it, so we're going to fill products in the ``state`` with that ``payload`` data
+23. ``action.payload`` will make more sense once we create the actual ``action function``
+24. Next, if we try to fetch data and we get an error like a ``404``, then the product list will fail 
+25. Therefore, add this ``case 'PRODUCT_LIST_FAIL': return { loading: false, error: action.payload }`` because we will also send the error through the action payload if that happens
+26. The default will be ``default: return state``, with the state being the initial ``state = { products: [] }``
+27. In order to use this ``reducer``, we need to actually add it to our store
+28.
+29.
+30.
+
 
 Section 5.29: Bringing Redux State Into HomeScreen - useDispatch & useSelector
 ----------------
