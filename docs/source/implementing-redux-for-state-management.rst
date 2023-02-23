@@ -107,9 +107,49 @@ Section 5.28: Product List Reducer & Action
 25. Therefore, add this ``case 'PRODUCT_LIST_FAIL': return { loading: false, error: action.payload }`` because we will also send the error through the action payload if that happens
 26. The default will be ``default: return state``, with the state being the initial ``state = { products: [] }``
 27. In order to use this ``reducer``, we need to actually add it to our store
-28.
-29.
-30.
+28. That would be ``import { productListReducer } from './reducers/productReducers'``
+29. Add this to the ``combineReducers`` param object: ``productList: productListReducer``
+30. This is important as that is what's going to appear in the state ``productList``
+31. Now if you return to the browser Redux tools, ``productList`` appears with a ``products: []`` inside the State tab
+32. Before we get into ``actions``, Traversy tells us about ``constants``
+33. Constants just means our ``case values`` for the ``reducer switch syntax`` will be in ``consts`` that doesn't change, even though it ultimately will have the same string values
+34. Not everbody uses ``constants``, but this new ``src`` folder ``constants/`` will give us a central place for all of our cases, all of our ``constants``
+35. In ``constants/`` create ``productConstants.js`` and ``export const`` for each ``case type`` in ``productReducers.js``
+36. For instance, ``export const PRODUCT_LIST_REQUEST = 'PRODUCT_LIST_REQUEST'`` and for SUCCESS and FAIL also
+37. Back in ``productReducers.js``, import the above three consts ``... from '../constants/productConstants'``
+38. Then replace the ``strings`` with the ``constants``
+39. Next, in the ``src/`` folder create an ``actions/`` folder, then create ``productActions.js`` inside of it
+40. You will notice how we ``create the constant --> the reducer --> the action --> fire it off in the component``
+41. We want to bring in the ``constants`` into our action file as well
+42. After importing, make sure at the bottom to ``export const listProducts = () => {}``
+43. What this action will do is pretty much what we did in our ``useEffect`` in the ``HomeScreen`` component
+44. So, we fetched from API products and we got that data back, then we just map through them down instead of fetching them directly
+45. We are going to do this through this action and we're going to ``dispatch actions`` to the ``reducer``
+46. Think of the functions on these ``productAction.js`` files as ``action creators``, and the actual ``actions`` (i.e., the ``constants``) that we dispatch back to the ``reducer`` like ``PRODUCT_LIST_REQUEST``
+47. So, think of those reducer case types as ``actions``, where each type we are looking for is a potential action
+48. In short, ``action reducers`` are functions, and the constants are actual ``actions`` (``reducers are functions``)
+49. This is where Redux Thunk comes in (we want to make an asynchronous request)
+50. ``redux-thunk`` allows us to basically add a function within a function 
+51. This is how we can dispatch these actions: ``export const listProducts = () => async (dispatch) => { ... }``
+52. Inside the action creator, add a ``try {} catch {}`` block and first try to ``dispatch()`` the request
+53. Within the ``try`` add this: ``dispatch({ type: PRODUCT_LIST_REQUEST })`` to set ``loading`` to true (see the reducer aligning with this ``constant/action`` case type)
+54. In the ``productActions.js``, ``import axios from 'axios'`` then destructure data: ``const { data } = await `` ...
+55. After the ``await`` above, finish the variable with this: ``axios.get('/api/products')`` to give us the data
+56. Then, under that part of the ``try`` block, ``dispatch({ type: PRODUCT_LIST_SUCCESS })``
+57. In the ``try`` is the REQUEST and SUCCESS, because if it FAILS, then it'll fire down in the ``catch (error) { ... }``
+58. When it works, we want to send the ``payload`` as the ``data``, so in the SUCCESS dispatch object also add ``payload: data``
+59. This aligns with the ``productReducers.js`` case where SUCCESS constant returns ``{ loading: false, products: action.payload }``
+60. Observe how in the reducer receives the action conditionally dispatched based on what constant it was provided 
+61. If something goes wrong, then we want to ``dispatch({ type: PRODUCT_LIST_FAIL })`` in the ``catch {}`` block 
+62. Here, also add to the dispatch ``payload: error.response && error.response.data.message``
+63. Here we want to get whatever the error message is like (test in Postman if you want: ``{{URL}}/api/products/1``)
+64. This way we can that put into the payload, which means we can get our ``backend/`` errors and have them in our ``frontend/`` state
+65. The ``error.response`` is just a generic message, but if we have a custom message it will be ``data.message``
+66. That will give us the message we set up in postman (see ``errorMiddleware.js`` for more info)
+67. Update the dispatch payload for FAIL to read this completely: ``error.response && error.response.data.message ? error.response.data.message : error.message``
+68. This creates a ternary that checks for if both exist to use the custom, otherwise to use the default error message 
+69. This payload will be very common in all of our requests, since we just want to fill it with the error message
+70. In our ``HomeScreen``, we want to fire this action off, so that is what we are going to do in the next video
 
 
 Section 5.29: Bringing Redux State Into HomeScreen - useDispatch & useSelector
