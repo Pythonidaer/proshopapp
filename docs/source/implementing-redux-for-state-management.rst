@@ -155,9 +155,50 @@ Section 5.28: Product List Reducer & Action
 Section 5.29: Bringing Redux State Into HomeScreen - useDispatch & useSelector
 ----------------
 
-1.
-2.
-3.
+1. In the last video, we created ``constants`` for the ``productList`` ``reducer``, which handles the listing of products in the ``state``, then also listed the ``listProducts`` ``action``
+2. Now, the ``listProducts action`` needs to be *fired off* in the ``HomeScreen``
+3. Traversy starts by clearing out the ``useEffect(() => {}, [])``
+4. Note that we no longer need to set products as our local state anymore or our component level state
+5. We don't even need useState in HomeScreen
+6. To ``dispatch`` our ``listProducts`` action, we have to bring that in from ``react-redux``
+7. ``import { useDispatch, useSelector } from 'react-redux'`` 
+8. useDispatch will be used to dispatch or call in ``action``
+9. useSelector is used to select parts of the ``state``
+10. To dispatch we first need to define a variable called ``dispatch`` and just set that to ``useDispatch``
+11.  ``import { listProducts } from ''../actions/productActions'``
+12. Again we want to fire this off in the useEffect because it does the same thing as before, it makes the request to the ``backend/`` to get ``products``
+13. Add in the useEffect: ``dispatch(listProducts())``
+14. Since we're using dispatch in the useEffect, also add ``dispatch`` as a dependency in the [] of the ``useEffect``
+15. Just that alone should call listProducts and fill up our state
+16. Make ``const products = []`` below that
+17. Refresh ``localhost:3000`` and observe the ``Diff`` in ``state`` from the Redux Dev tools
+18. Observe both actions fired off: ``PRODUCT_LIST_REQUEST`` then ``PRODUCT_LIST_SUCCESS``
+19. This occurs because we ``dispatched`` ``listProducts`` from our ``HomeScreen.js`` (inside the ``useEffect``)
+20. In our ``listProduct`` action (on ``productActions.js``), the action is fired and happened to be successful 
+21. Because it was successful, it passed the data into the ``payload``
+22. In our ``reducer`` (in ``productReducers.js``), that ``payload`` is getting put into ``products`` on a successful response
+23. If we look inside ``products`` in the ``Diff``, we can see that it's filled with product data
+24. Observe also that the products appear in the ``State`` of the Redux Dev Tools
+25. To actually display those, we have to select it from ``state``, which is where ``useSelector`` omes in
+26. ``const productList = useSelector(state => state.productList)``
+27. We want to call the above whatever we call it in the ``store.js``
+28. ``useSelector`` takes in an arrow function then what part of the state that we want (so for this, productList)
+29. Now we can ``destructure`` what we want from product list 
+30. ``const { loading, error, products } = productList``
+31. This is all parts of that ``state`` that could be sent down (review what's returned in ``productReducers.js``)
+32. Next up, remove the empty ``const products = []`` then prepare for checking to see if state is loading or in error
+33. ``{loading ? <h2>Loading...</h2> : error ? <h3>{error}</h3> : ...}``
+34. In the ``...`` above, insert the entire ``<Row>`` code into the JSX
+35. At this point, we should now be getting our ``products``, even the ``Loading...`` momentarily when it is true
+36. In our ``route`` in ``productRoutes.js``, you can change ``router.get('/', ...)`` to test out errors 
+37. Under ``products``, add ``res.status(401)`` then ``throw new Error('Not Authorized')``
+38. Now, when we refresh the page we only see ``Not Authorized`` as we added in Step 33. (in the ``JSX`` block)
+39. Undo the changes in the routes page
+40. To recap, using the ``useSelector`` allows us to get those pieces of state (our products) that we get from Redux 
+41. This data now appears inside of our ``HomeScreen`` component because of the ``useSelector`` code
+42. Traversy says there's two parts: firing off the ``action`` to actually get the product, send it through the ``reducer`` down into the ``state``
+43. Then there's the ``useSelector()`` to actually grab it from the ``state`` then pull out what we want from it and display it in our output
+44. In the next videos, we will create a ``<Loader>`` spinner, then a ``<Message>`` component for nice alerts
 
 Section 5.30: Message & Loader Components
 ------------
