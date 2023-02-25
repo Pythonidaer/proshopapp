@@ -203,9 +203,26 @@ Section 5.29: Bringing Redux State Into HomeScreen - useDispatch & useSelector
 Section 5.30: Message & Loader Components
 ------------
 
-1.
-2.
-3.
+1. Now we will replace ``loading ? (<h2 ...>)`` and ``: error ? (<h3 ...>)`` with components
+2. In ``components/``, create ``Loader.js`` and ``Message.js``
+3. Use the ``rafce`` + tab shortcut to generate a React component for each 
+4. For ``Loader.js``, also ``import { Spinner } from 'react-bootstrap'``
+5. In the ``return``, swap out the <div> with ``<Spinner animation='border'> ... </Spinner>``
+6. To see everything that's available, header over to `the React-Boostrap documentation on Spinners <https://react-bootstrap.github.io/components/spinners/>`_ 
+7. Assign the ``<Spinner>`` a ``role`` and a ``style``
+8. Within the Spinner, add a ``<span>`` (see file for className information)
+9. For ``Message.js``, ``import { Alert } from 'react-bootstrap``'
+10. This component will receive two ``props``: ``{ variant, children }``, the latter being the text we want inside
+11. To see everything that's available, header over to `the React-Boostrap documentation on Alerts <https://react-bootstrap.github.io/components/alerts/>`_ 
+12. Add a ``defaultProps`` to the ``Message`` component, so that its ``variant`` defaults to a light blue ``Alert``
+13. Navigate to ``HomeScreen.js`` and import both components
+14. Replace the ``loading`` and ``error`` headings with components (see file for more specific detail)
+15. To test the error (``<Message>``), navigate to ``productRoutes.js`` and in ``router.get('/', ...)`` ``throw new Error('Some error')`` before responding with the json
+16. If you look inside the ``state Diff`` Redux tool, we get an ``error`` because our ``productList`` is failing (you can see the ``PRODUCT_LIST_FAIL`` at the top)
+17. Notice how when you undo the route error and refresh the page, the ``productList`` state no longer shows an ``error`` because ``PRODUCT_LIST_SUCCESS`` shows 
+18. In other words, the ``action.payload`` is different because a separate ``constant/action`` was fired off
+19. In the next page, we will work on the product details page
+20. Rather than fetch from the component, we want to have a ``productDetailsReducer`` with a listProduct/getProductDetails actions, and get this from the global Redux state
 
 Section 5.31: Product Details Reducer & Action
 ----------------
