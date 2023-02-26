@@ -227,6 +227,47 @@ Section 5.30: Message & Loader Components
 Section 5.31: Product Details Reducer & Action
 ----------------
 
-1.
-2.
-3.
+1. To repeat what we did on the ``HomeScreen`` on the ``ProductScreen.js``, we want to ``fetch`` data from the ``state``
+2. Create a ``productDetailsReducer``, an ``action``, get the ``data`` within the component with ``useSelector`` then fire it off with ``useDispatch`` 
+3. Note that this is kind of the flow for the rest of the course
+4. Whenever you want to add a new piece of *functionality*, make a new request or whatever, this is the structure that Travery suggests
+5. Start off with the ``constants/`` ``productConstants.js``(``PRODUCT_DETAILS_...``)
+6. Next, go to the ``productReducer.js`` and copy paste the productListReducer and rename it to ``productDetailsReducer``
+8. Change the state to be ``{ product: { reviews: [] } }`` as the initial state
+9. Observe how the ``constants`` are actually just ``types`` of ``actions``
+10. For ``PRODUCT_DETAILS_REQUEST``, use a spread operator to add whatever else is in the current ``state``
+11. For ``PRODUCT_DETAILS_SUCCESS``, set the ``action.payload`` to the ``product``
+12. Remember that whenever we create a new ``reducer`` we have to add it to our ``store.js``
+13. Inside ``const reducer``, add the value ``productDetails: productDetailsReducer`` and make sure to import this also
+14. Traversy likes breaking things up into separate reducers, because it makes it easier for him to ``debug``
+15. Also, because it causes less issues with like wrong pieces of state being displayed and whatnot
+16. After we add our ``reducer`` to our ``store``, we want to create our ``action``
+17. We know we want to make a ``request`` to our ``backend/`` and make a ``request`` to ``/api/products/:id``
+18. In ``productActions.js``, observe the ``listProductDetails`` ``action`` and observe how it takes an ``id`` arg
+19. Notice how the ``error`` stays the same, or rather the entire ``catch`` block and ``dispatch`` for FAIL 
+20. Observe how in the ``try`` block we once again destructure and ``await`` the data we get from the route request 
+21. This is because the request returns a ``Promise``
+22. The ``id`` is passed into the route from the ``action`` parameter
+23. After finishing the ``action``, move into ``ProductScreen.js`` and remove the ``axios`` import 
+24. You can also remove the destructured ``useState({})`` since we're no longer calling it 
+25. Clear out the ``useEffect`` and ``import { useDispatch, useSelector } from 'react-redux'``
+26. Inside the ``ProductScreen``, note that the video shows ``match`` but ``react-router version 6`` no longer uses this 
+27. Add ``const dispatch = useDispatch()`` as we want to ``dispatch`` the ``action`` that we just created
+28. Add ``dispatch()`` into the ``useEffect()``
+29. To learn more about useEffect, visit `the React documentation on effect hooks <https://reactjs.org/docs/hooks-effect.html/>`_ 
+30. ``import { listProductDetails } from '../actions/productActions'``
+31. ``dispatch(listProductDetails(params.id))``
+32. Note some of the ``v6`` imports here: ``import { Link, useParams, useNavigate } from 'react-router-dom'``
+33. Rather than use match, within the component add ``const params = useParams()`` to extract the params.id
+34. Notice how this lines up with the ``action`` and is how we get the parameter for that through ``react-router-dom``
+35. Make sure to add in ``dispatch`` and ``params`` as your arrayed dependencies
+36. Temporarily add ``const products = {}`` and observe how the screen doesn't yet show the data but doesn't error 
+37. Next observe in the ``Diff`` how the object data appears, along with the REQUEST and SUCCESS actions
+38. Under ``dispatch``, add ``const productDetails`` and assign it to ``useSelector(state => state.productDetails)``
+39. Below that, destructure `const { loading, error, product } = productDetails`
+40. In the ``return``, below ``</Link>``, add an expression similar to the last component ``{loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : ()}`` and paste the ``<Row>`` inside that final empty parenthesis
+41. Reload the page and you should see the products, the loader, *coming from the server and coming through Redux down through our state*
+42. As you can see, every ``action`` that is called is shown in the Redux toolkit
+43. In the next section, we will add the ``cart`` reducer and actions because we're going to have to do something to the cart 
+44. We're going to make a request to get the data for that item from the database and have it in our cart 
+45. We're also going to be using ``localStorage`` so that we can save whatever is in our cart in the browser
