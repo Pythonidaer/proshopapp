@@ -21,11 +21,27 @@ Section 6.32: Qty Select & Add To Cart Button
 13. Traversy's following block of JSX code ``[...Array]...`` makes so if the stock is say, five, he makes an array with 0-5 values
 14. Then he ``maps`` over the array, and displays an ``<option>``, eac having a ``key`` and ``value``
 15. Rather than going from 0-4, Traversy adds ``x + 1`` so that we get, for example, 1-5 for 5
-16.
-17.
-18.
-19.
-20.
+16. Now the ``product`` ``State`` ``countInStock`` value matches that of the ``Qty`` dropdown options (3 = 1-3)
+17. When the ``countInStock`` is 0, the text just reads "Out Of Stock" and the "Add to Cart" button is ``disabled``
+18. Observe how the "Add to Cart" ``<Button/>`` now has an ``onClick={addToCartHandler}`` added to the component 
+19. Add the handler code below our ``userEffect()`` (at least that is what Traversy prefers)
+20. ``const addToCartHandler = () => {}`` with the idea to go to the cart page with some parameters
+21. Brad wants the ``product`` items and quantity as the query string 
+22. This will require ``react-router`` functionality
+23. Traversy uses v5 of ``react-router`` but we do not - ``history`` and ``match`` and no longer supported
+24. The component now has ``const params = useParams()`` and ``const navigate = useNavigate()`` instead 
+25. ``params`` is used in  ``dispatch(listProductDetails(params.id))`` inside the useEffect (and its dependencies)
+26. ``navigate`` is used in ``const addToCartHandler = () => { navigate(`/cart/${params.id}?qty=${qty}`)}``
+27. Notice how once the ``<Button/>`` is now clicked, the URL becomes ``localhost:3000/cart/a_long_id/qty=2``
+28. Next, create ``CartScreen.js`` inside the ``screens/`` folder 
+29. Don't forget to get more details by reviewing `the React Router docs <https://reactrouter.com/en/main/hooks/use-navigate/>`_ 
+30. Generate the Cart Component 
+31. Inside ``App.js``, import the ``CartScreen.js`` and observe the ``<Route>`` for it has a ``path='/cart/:id'``
+32. Review the path we followed: Upload button redirect navigation -> create CartScreen component -> add to ``App.js``
+33. Now when you visit CartScreen, it shows the word 'Cart', and if you click the top navigation link, it shows the ``CartScreen`` as well 
+34. In the next video, Traversy handles the cart ``reducer``, along with an ``action`` that gets details from the database for that specific item in the cart 
+35. This will also add it to the cart, which will be saved in local strage 
+36. After that, we will build out the screen, which will show all the products in your cart
 
 Section 6.33: Cart Reducer & Add To Cart Action
 ------------
