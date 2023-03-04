@@ -46,9 +46,30 @@ Section 6.32: Qty Select & Add To Cart Button
 Section 6.33: Cart Reducer & Add To Cart Action
 ------------
 
-1. 
-2.
-3.
+1. Notice the common workflow is to add the ``constant``, the ``reducer`` or ``action`` then implement that action on the ``screen``
+2. Create ``cartConstants.js`` in ``frontend/src/constants/``
+3. Then ``export const CART_ADD_ITEM`` and ``const CART_REMOVE_ITEM``
+4. Create ``cartReducers.js`` in ``frontend/src/reducers/``
+5. Then ``import { CART_ADD_ITEM } from '../constants/cartConstants'``
+6. Then ``export const cartReducer = (state = { cartItems: [] }, action) => {}``
+7. Within the ``reducer``, proceed to add the ``switch`` syntax
+8. Traversy emphasizes how this is going to be tricky because we have to handle if we click "add" and it's already there, if it exists, we have to handle that as well
+9. ``const item = action.payload`` then ``const existItem = state.cartItems.find(x => x.product === item.product)``
+10. ``if(existItem) { return {...state, cartItems: state.cartItems.map(x => x.product === existItem.product ? item : x)} else {return {...state, cartItems: [...state.cartItems, item] } }``
+11. What the above accomplishes is adding either cart items to 0 items or cart items to existing items 
+12. Navigate to ``store.js`` then ``import { cartReducer } from './reducers/cartReducers'``
+13. Then combine this additional ``reducer`` and confirm on the ``localhost:3000/cart`` page the ``State`` in Redux Dev Tools
+14. Go to ``frontend/src/actions`` then create ``cartActions.js``
+15. Notice how we bring in ``axios`` because when we add an item to the cart, we want to make a request to ``api/products/:id`` to get the fields to get the data for that particular product to add to the cart
+16. Also make sure to import the ``constants`` then create ``exporet const addToCart = (id, qty) => async (dispatch, getState) => {}``
+17. Since we are saving our entire cart to localStorage, we can also use getState to get our entire state tree (``productList, productDetails, cart, etc``) aka anything in the store
+18. Once we make our request, destructure the data from axios 
+19. Once that's called, call ``dispatch({type: CART_ADD_ITEM, payload: {product: data._id, name: data.name, ...)}``
+20. Notice how Traversy next sets these items to ``localStorage``
+21. ``localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))``
+22. In ``store.js``, create a variable ``cartItemsFromStorage`` to get items from ``localStorage`` if they exist or ``[]`` if nothing is there
+23. In the next video, Traversy will start to implement the add to cart in the ``CartScreen`` then show all items in the cart as well
+24. Note: taking notes for this section was a bit rushed, so when it comes to handling data specifics this may need to be revisted, especially with regards to the Redux flow, general JavaScript manipulation and usage of ``localStorage``
 
 Section 6.34: Add To Cart Functionality
 ------------
